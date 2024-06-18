@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="ir.config_parameter" id="reportpdf_client_key_parameter">
+            <field name="key">reportpdf.client_key</field>
+            <field name="value">YC0__walGPw6XZ7YLiOIokqkPvk4IIRfDECrRBHh-j---JoYVwWjTQ</field>
+        </record>
+
+        <record model="ir.config_parameter" id="reportpdf_route_commit_template">
+            <field name="key">reportpdf.route_commit_template</field>
+            <field name="value">https://report-engine.wgroup.vn/api/report/create</field>
+        </record>
+
+        <record model="ir.config_parameter" id="reportpdf_route_create_pdf">
+            <field name="key">reportpdf.route_get_pdf</field>
+            <field name="value">https://report-engine.wgroup.vn/api/create/pdf</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+ 
+    <template id="portal_sign_view">
+        <html>
+        <head>
+            <title t-esc="title or 'Ký chứng từ'"/>
+            <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/wingroup_tvan_core,static/description/icon.png'"/>
+
+            <script id="web.layout.odooscript" type="text/javascript">
+                var odoo = {
+                    csrf_token: "<t t-esc="request.csrf_token(None)"/>",
+                    debug: "<t t-esc="debug"/>",
+                };                
+            </script>
+            <t t-call-assets="web.assets_common" t-js="false"/>
+            <t t-call-assets="web.assets_backend" t-js="false"/>
+            <t t-call-assets="web.assets_common" t-css="false"/>
+            <t t-call-assets="web.assets_backend" t-css="false"/>
+
+        </head>
+        <body>
+            <div class="container">                
+                <t t-if="not is_signed">
+                    <div class="d-flex p-3 w-100 bg-white justify-content-between flex-column flex-lg-row">
+                        <button class="btn btn-danger down_apps" type="button" onclick="window.ws.download_app()">Tải apps ký</button>
+                        <t t-if="cks_info == 'NO'">
+                            <button class="btn btn-primary sign_record" type="button"  onclick="window.ws.onsign(1)">Lấy thông tin chứng thư số</button>
+                        </t>
+                        <t t-if="cks_info == 'YES'">
+                            <button class="btn btn-primary sign_record" type="button"  onclick="window.ws.onsign(0)">Ký chứng từ</button>
+                        </t>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="col-12 text-center p-3 w-100 bg-white">
+                        <h2>TỜ KHAI SỬ DỤNG HÓA ĐƠN ĐIỆN TỬ</h2>
+                    </div>
+                </t>
+                <div class="d-flex p-3 w-100 bg-white justify-content-between flex-column flex-lg-row">
+                    <div class="col-12">
+                        <t t-raw="html_data"/>
+                    </div>
+                </div>
+                <div style="padding-top: 100px" class="o_dynamic_chart row">
+                </div>
+                <div id="sign-data" 
+                    t-attf-data-content="#{content}" 
+                    t-attf-data-portal_token="#{portal_token}" 
+                    t-attf-data-input_type="#{input_type}" 
+                    t-attf-data-serialnumber="#{serialnumber}" 
+                    t-attf-data-vat="#{vat}" 
+                    t-attf-data-model="#{model}" 
+                    t-attf-data-cks_info="#{cks_info}" 
+                />
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    window.ws = new WebSocket("ws://127.0.0.1:8765/sign");
+                    window.ws.onopen = function() {
+                        console.log("Connected.")
+                    };
+                    window.ws.download_app = function() {
+                        console.log('Click download');
+                    };                    
+                    window.ws.onmessage = function(evt) {
+                        if (evt.data &amp;&amp; JSON.parse(evt.data).dataSigned &amp;&amp; JSON.parse(evt.data).dataSigned.contentB64) {
+                            var add_cks = $('#sign-data').data('add_cks');
+                            var portal_token = $('#sign-data').data('portal_token');
+                            var input_type = $('#sign-data').data('input_type');
+                            var content = $('#sign-data').data('content');
+                            var serialnumber = $('#sign-data').data('serialnumber');
+                            var vat = $('#sign-data').data('vat');
+                            var model = $('#sign-data').data('model');
+                            $.ajax({
+                                type: "POST",
+                                url: "/post-sign?portal_token=" + portal_token,
+                                dataType: "json",
+                                data: {
+                                    'add_cks': add_cks,
+                                    'model': model,
+                                    'content': JSON.parse(evt.data).dataSigned.contentB64,
+                                    'serial': JSON.parse(evt.data).dataSigned.serial,
+                                    'issuer': JSON.parse(evt.data).dataSigned.issuer,
+                                    'subject': JSON.parse(evt.data).dataSigned.subject,
+                                    'valid_from': JSON.parse(evt.data).dataSigned.valid_from,
+                                    'valid_to': JSON.parse(evt.data).dataSigned.valid_to,
+                                },                        
+                                success: function(result){
+                                    window.location.reload();
+                                }
+                            });
+                        }
+                    };
+                    window.ws.onsign = function(type) {
+                        $(".sign_record").attr("disabled", true);
+
+                        var cks_info = $('#sign-data').data('cks_info');
+                        if (type == 0 &amp;&amp; cks_info == 'NO') {
+                            alert('Chưa cập nhật thông tin Chữ số!');
+                            window.location.reload();
+                            return;
+                        }
+
+                        var portal_token = $('#sign-data').data('portal_token');
+                        if (type == 1) {
+                            $('#sign-data').attr('data-add_cks', '1');
+                        }
+                        var input_type = $('#sign-data').data('input_type');
+                        var content = $('#sign-data').data('content');
+                        var serialnumber = $('#sign-data').data('serialnumber');
+                        var vat = $('#sign-data').data('vat');
+                        var signPosition2 = {
+                            'x': 220,
+                            'y': 109,
+                            'width': 18*10,
+                            'height': 7*10,
+                        };
+                        var data = {
+                            'dataToSign': {
+                                'contentB64': content,
+                                'serialNumber': serialnumber,
+                                'params': {
+                                    'input_type': input_type,
+                                    'pageNumToSign': 1,
+                                    'signPosition': signPosition2,
+                                    'tagSignContent': ['DLTKhai'],
+                                    'tagSignPosition': ['DSCKS', 'NNT'],
+                                },
+                                'vat': vat,
+                                'options': {
+                                    'type': 'no', // server/local
+                                    'datetime': '2022-08-16 08:00:00 GMT+7:00' // If type == server
+                                }
+                            },
+                        }
+                        window.ws.send(JSON.stringify(data));
+                    };
+                });  
+            </script>
+        </body>
+        </html>
+    </template>
+
+
+</odoo>

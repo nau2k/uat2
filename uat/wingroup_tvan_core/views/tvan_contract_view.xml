@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Hợp đồng sử dụng HĐĐT -->
+    <record model="ir.ui.view" id="wg_hddt_contract_tree">
+        <field name="name">wg.hddt.contract.tree</field>
+        <field name="model">wg.hddt.contract</field>
+        <field name="arch" type="xml">
+            <tree string="Hợp đồng sử dụng Hóa đơn điện tử">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="order_id"/>
+                <field name="company_name" widget="text"/>
+                <field name="company_is_sign"/>
+                <field name="partner_name" widget="text"/>
+                <field name="partner_is_sign"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="wg_hddt_contract_form">
+        <field name="name">wg.hddt.contract.form</field>
+        <field name="model">wg.hddt.contract</field>
+        <field name="arch" type="xml">
+            <form string="Hợp đồng sử dụng Hóa đơn điện tử">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="order_id"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Thông tin bên A">
+                            <field name="company_name" widget="text"/>
+                            <field name="company_is_sign"/>
+                        </group>
+                        <group string="Thông tin bên B">
+                            <field name="partner_name" widget="text"/>
+                            <field name="partner_is_sign"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hddt_contract" model="ir.actions.act_window">
+        <field name="name">Hợp đồng sử dụng Hóa đơn điện tử</field>
+        <field name="res_model">wg.hddt.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

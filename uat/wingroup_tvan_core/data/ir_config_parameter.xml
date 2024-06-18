@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.config_parameter" id="get_company_info_url_parameter">
+            <field name="key">company_info.main_url</field>
+            <field name="value">https://portal.wgroup.vn/api/company-info</field>
+        </record>
+        <record model="ir.config_parameter" id="get_company_info_client_key_parameter">
+            <field name="key">company_info.client_key</field>
+            <field name="value">63WMwfr4DC8AfIhYJLuadWa65YcpMtAXMRV0WuI01yMYS1cebruSMw</field>
+        </record>
+    </data>
+</odoo>

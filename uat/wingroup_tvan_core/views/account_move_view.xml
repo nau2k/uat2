@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_move_form_tvan">
+        <field name="name">account.move.form TVAN</field>
+        <field name="model">account.move</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <header position="attributes">
+                <attribute name="attrs">{'invisible': [('inv_serial_id', '!=', False)]}</attribute>
+            </header>
+            <header position="after">
+                <header attrs="{'invisible': [('inv_serial_id', '=', False)]}">
+                    <button name="wg_view" string="Xem Hóa đơn" type="object" data-hotkey="v"/>
+                    <button name="wg_sign_invoice_vat" string="Ký hóa đơn" class="btn-primary" type="object" data-hotkey="x" attrs="{'invisible': [('attachment_sign_id', '!=', False)]}"/>
+
+                    <button name="set_xml_data" string="Tạo file XML" type="object" attrs="{'invisible': [('attachment_origin_id', '!=', False)]}"/>
+
+                    <button name="wg_send_tct" string="Nộp lên TCT" confirm="Bạn chắc chắn muốn thực hiện hành đồng này?" attrs="{'invisible': ['|', ('wg_state', '=', '0'), ('attachment_sign_id', '!=', False)]}" class="btn-primary" type="object"/>
+
+                    <button name="wg_handle" string="Xử lý Hóa đơn" type="object" attrs="{'invisible': [('wg_state', '!=', '1')]}"/>
+
+                    <field name="wg_state" widget="statusbar" statusbar_visible="0,1"/>
+                </header>
+            </header>
+            <div class="oe_title" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </div>
+            <div class="o_td_label" position="replace"/>
+            <field name="partner_id" position="replace">
+                <label for="partner_id" string="Mã khách hàng"/>
+                <div class="o_row">
+                    <field name="partner_id" placeholder="Tìm KH theo MST, tên, địa chỉ, ..." />
+                    <button string="Tạo KH" class="btn-primary oe_edit_only" type="object" name="wg_create_partner"/>
+                </div>
+            </field>
+            <field name="partner_id" position="attributes">
+                <attribute name="context">{
+                    'res_partner_search_mode': (context.get('default_move_type', 'entry') in ('out_invoice', 'out_refund', 'out_receipt') and 'customer') or (context.get('default_move_type', 'entry') in ('in_invoice', 'in_refund', 'in_receipt') and 'supplier') or False,                                             
+                    'default_is_company': True, 
+                    'only_show_ref': True,
+                }</attribute>
+                <attribute name="options">{
+                    'no_quick_create': 1,
+                    'no_open': 1,
+                }</attribute>
+            </field>
+            <field name="payment_reference" position="before">
+                <field name="buyer_name"/>
+                <field name="partner_name" widget="text"/>
+                <label for="partner_vat" string="Mã số thuế"/>
+                <div class="o_row">
+                    <field name="partner_vat" />
+                    <button string="Lấy thông tin" class="btn-primary oe_edit_only" type="object" name="wg_find_partner"/>
+                </div>
+                <field name="partner_address" widget="text"/>
+                <field name="acc_bank_number"/>
+                <field name="acc_bank_name"/>
+
+                <field name="portal_token" invisible="1"/>
+                <field name="MTDiep" invisible="0" widget="text" groups="base.group_no_one"/>
+                <field name="attachment_origin_id" groups="base.group_no_one"/>
+                <field name="attachment_sign_id" invisible="0" groups="base.group_no_one"/>
+            </field>
+            <field name="payment_reference" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <div class="o_td_label" position="before">
+                <label for="adjust_type" attrs="{'invisible': [('adjust_type', '=', '0')]}"/>
+                <div class="o_row"  attrs="{'invisible': [('adjust_type', '=', '0')]}">
+                    <field name="adjust_type" readonly="1"/>
+                    <label for="adjust_for_id"/>
+                    <field name="adjust_for_id" readonly="1"/>
+                </div>
+
+                <label for="inv_serial_id"/>
+                <div class="o_row" >
+                    <field name="inv_serial_id"/>
+                    <label for="inv_date"/>
+                    <field name="inv_date"/>
+                </div>
+            </div>
+            <field name="invoice_date" position="replace"/>
+            <div class="o_td_label" position="replace">
+                <label for="inv_number"/>
+                <div class="o_row">
+                    <field name="inv_number"/>
+                    <label for="invoice_date"/>
+                    <field name="invoice_date"/>
+                </div>
+
+                <label for="currency_id" string="Tiền tệ"/>
+                <div class="o_row">
+                    <field name="currency_id" options="{'no_create': 1, 'no_open': 1}"/>
+                    <label for="currency_rate"/>
+                    <field name="currency_rate"/>
+                </div>
+
+                <field name="wg_payment_method"/>
+                <field name="partner_email"/>
+                <field name="partner_email_cc" placeholder="Các email cách nhau bởi dấu phẩy ','"/>
+                <field name="wg_extend_value"/>
+                <label for="wg_report_number" attrs="{'invisible': [('wg_extend_value', '=', False)]}"/>
+                <div class="o_row"  attrs="{'invisible': [('wg_extend_value', '=', False)]}">
+                    <field name="wg_report_number"/>
+                    <label for="wg_report_date"/>
+                    <field name="wg_report_date"/>
+                </div>
+                <field name="partner_phone" attrs="{'invisible': [('wg_extend_value', '=', False)]}"/>
+                <field name="wg_note" attrs="{'invisible': [('wg_extend_value', '=', False)]}"/>
+                <field name="MCCQT"/>
+            </div>
+            <label for="invoice_payment_term_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </label>
+            <div class="d-flex" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </div>
+            <label for="journal_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </label>
+            <div name="journal_div" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </div>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='name']" position="after">
+                <field name="product_code" readonly="1" force_save="1"/>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/control/create[@name='add_line_control']" position='attributes'>
+                <attribute name="string">Thêm sản phẩm/dịch vụ</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/control/create[@name='add_section_control']" position='attributes'>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree" position="inside">
+                <field name="wg_type"/>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='account_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="attributes">
+                <attribute name="string">HH/DV</attribute>
+                <attribute name="context">{'only_show_code': 1}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='name']" position="attributes">
+                <attribute name="string">Tên hàng hóa, dịch vụ</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_uom_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_uom_id']" position="after">
+                <field name="uom_name2"/>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="attributes">
+                <attribute name="string">Đơn giá</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='tax_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='tax_ids']" position="after">
+                <field name="wg_tax_id"  domain="[('type_tax_use', '=?', parent.invoice_filter_type_domain), ('company_id', '=', parent.company_id), ('country_id', '=', parent.tax_country_id)]" options="{'no_create': 1, 'no_open': 1}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="account_move_tvan_tree">
+        <field name="name">account.move.tvan.tree</field>
+        <field name="model">account.move</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <tree string="Danh sách hoá đơn">
+                <field name="inv_serial_id"/>
+                <field name="inv_date"/>
+                <field name="inv_number"/>
+                <field name="partner_vat" widget="text"/>
+                <field name="partner_name" widget="text"/>
+                <field name="partner_address" widget="text" optional="hide"/>
+                <field name="amount_total_signed" string="Tổng tiền" sum="Tổng tiền" decoration-bf="1" optional="show"/>
+                <field name="currency_id" groups="base.group_multi_currency" optional="hide"/>
+                <field name="wg_state" widget="badge" decoration-info="wg_state == '0'" decoration-success="wg_state == '1'" decoration-danger="wg_state == '5'" decoration-warning="wg_state in ('3', '4')" string="Trạng thái"/>
+                <field name="MCCQT" widget="text"/>
+                <button name="wg_view" string="Xem" type="object" icon="fa-eye"/>
+                <!-- <button name="wg_edit" string="Sửa" type="object" icon="fa-edit"/> -->
+                <button name="wg_handle" string="Xử lý Hóa đơn" type="object" attrs="{'invisible': [('wg_state', '!=', '1')]}" icon="fa-eye"/>
+                <button name="wg_send" string="Gửi mail" type="object" icon="fa-send"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_account_move_tvan" model="ir.actions.act_window">
+        <field name="name">Danh sách hoá đơn</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('move_type', '=', 'out_invoice')]</field>
+        <field name="context">{'default_move_type': 'out_invoice'}</field>
+        <field name="view_id" ref="account_move_tvan_tree"/>
+    </record>
+
+    <record id="action_account_move_tvan_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0" />
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="account_move_tvan_tree" />
+        <field name="act_window_id" ref="action_account_move_tvan" />
+    </record>
+    <record id="action_account_move_tvan_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="5" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_move_form_tvan" />
+        <field name="act_window_id" ref="action_account_move_tvan" />
+    </record>
+
+</odoo>

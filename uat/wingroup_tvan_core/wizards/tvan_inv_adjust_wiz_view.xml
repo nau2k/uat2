@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="invoice_adjust_wiz_form_view">
+        <field name="name">tvan.inv.adjust.wiz.form</field>
+        <field name="model">tvan.inv.adjust.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Contract CKS Cancel wiz">
+                <group>
+                    <group>
+                        <field name="TCHDon"/>
+                        <field name="invoice_id" invisible="1"/>
+                        <field name="inv_serial_id" readonly="1" force_save="1" options="{'no_open': 1}"/>
+                        <field name="SHDon" readonly="1" force_save="1"/>
+                        <field name="NLap" readonly="1" force_save="1"/>                        
+                        <field name="HVTNMHang"/>                        
+                    </group>
+                    <group>
+                        <!-- <field name="partner_id" placeholder="Nhập Mã số thuế" context="{'form_view_ref': 'wingroup_cks.view_partner_invoice_form'}" options="{'no_create_edit': 1, 'no_create': 1, 'no_open': 1}" style="width: 100%"/> -->
+                        <field name="TenNMua" readonly="0" force_save="1"/>
+                        <field name="MSTNMua" readonly="0" force_save="1"/>
+                        <field name="DChiNMua" readonly="0" force_save="1" widget="text"/>
+                        <field name="SDThoaiNMua" readonly="0" force_save="1"/>
+                        <field name="DCTDTuNMua" readonly="0" force_save="1"/>
+
+                        <field name="product_name" widget="text"/>
+                        <field name="product_price"/>
+
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Xác nhận" class="btn-primary" type="object"/>
+                    <button string="Huỷ" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_adjust_invoice" model="ir.actions.act_window">
+        <field name="name">Xử lý hóa đơn</field>
+        <field name="res_model">tvan.inv.adjust.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

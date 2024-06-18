@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wg_inv_serial,wg.inv.serial,model_wg_inv_serial,,1,1,1,1
+access_wg_inv_sequence,wg.inv.sequence,model_wg_inv_sequence,,1,1,1,1
+access_wg_inv_registry,wg.inv.registry,model_wg_inv_registry,,1,1,1,1
+access_wg_cks_info,wg.cks.info,model_wg_cks_info,,1,1,1,1
+access_wg_hddt_contract,wg.hddt.contract,model_wg_hddt_contract,,1,1,1,1
+access_wg_hddt_display,wg.hddt_display,model_wg_hddt_display,,1,1,1,1
+access_wg_export_summary_inv_wiz,wg_export_summary_inv_wiz,model_wg_export_summary_inv_wiz,,1,1,1,1
+access_wg_export_misa_inv_wiz,wg_export_misa_inv_wiz,model_wg_export_misa_inv_wiz,,1,1,1,1
+access_wg_hddt_notice_error_inv,wg_hddt_notice_error_inv,model_wg_hddt_notice_error_inv,,1,1,1,1
+access_wg_hddt_adjust_document_inv,wg_hddt_adjust_document_inv,model_wg_hddt_adjust_document_inv,,1,1,1,1
+access_wg_tvan_history,wg_tvan_history,model_wg_tvan_history,,1,1,1,1
+access_wg_create_partner_wiz,wg_create_partner_wiz,model_wg_create_partner_wiz,,1,1,1,1

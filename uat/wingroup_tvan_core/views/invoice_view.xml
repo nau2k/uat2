@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="hddt_tree">
+        <field name="name">wg.account.invoice.tree</field>
+        <field name="model">wg.account.invoice</field>
+        <field name="arch" type="xml">
+            <tree string="Danh sách hóa đơn" delete="0">
+                <field name="NLap"/>
+                <field name="TCHDon" widget="badge" decoration-success="TCHDon == '0'" decoration-warning="TCHDon in ('1', '2')" string="Tính chất" optional="show"/>
+                <field name="name" string="Ký hiệu"/>
+                <field name="SHDon" string="Số HĐ"/>
+                <field name="MSTNMua" string="Mã số thuế"/>
+                <field name="partner_buyer_name" widget="text"/>
+                <field name="DChiNMua" widget="text" optional="hide"/>
+                <field name="TgTCThue" optional="hide"  widget="integer"/>
+                <field name="TgTThue" optional="hide"  widget="integer"/>
+                <field name="TgTTTBSo" string="Tổng tiền"  widget="integer"/>
+                <field name="state" widget="badge" decoration-info="state == '0'" decoration-success="state == '1'" decoration-danger="state == '5'" decoration-warning="state in ('3', '4')" string="Trạng thái"/>
+                <field name="system_note"/>
+                <field name="MCCQT" widget="text"/>
+                <field name="attachment_origin_id" invisible="1"/>
+                <button name="tvan_view_pdf" string="Xem hóa đơn" type="object" icon="fa-print"/>
+                <button name="wg_sign_invoice_vat" string="Ký hóa đơn" type="object" attrs="{'invisible': ['|', ('state', '!=', '0'), ('attachment_origin_id', '!=', False)]}" icon="fa-bullhorn"/>
+                <!-- <button name="wg_edit" string="Sửa" type="object" icon="fa-edit"/> -->
+                <button name="wg_handle" string="Xử lý hóa đơn" type="object" states="1" icon="fa-print"/>
+                <button name="wg_send" string="Gửi mail" type="object" icon="fa-send"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hddt_popup_form">
+        <field name="name">wg.account.invoice.popup.form</field>
+        <field name="model">wg.account.invoice</field>
+        <field name="priority">1106</field>
+        <field name="arch" type="xml">
+            <form string="Hóa đơn điện tử" edit="0" create="0">
+                <header>                    
+                    <button name="tvan_download_invoice" string="Tải hóa đơn" type="object" data-hotkey="d" icon="fa-download"/>
+                    <!-- <button name="wg_sign_invoice_vat" string="Ký hóa đơn" class="btn-primary" type="object" data-hotkey="x" attrs="{'invisible': ['|', ('state', '!=', '0'), ('attachment_origin_id', '!=', False)]}" icon="fa-bullhorn"/> -->
+                    <button name="wg_handle" string="Xử lý Hóa đơn" type="object" states="1"/>
+                    <field name="state" widget="statusbar" statusbar_visible="0,1"/>
+                </header>
+                <sheet>
+                    <field name="attachment_id" invisible="1"/>
+                    <field name="attachment_origin_id" invisible="1"/>
+                    <field name="attachment_sign_id" invisible="1"/>
+                    <field name="pdf_preview" widget="pdf_viewer" readonly="1"/>
+                </sheet>
+                <footer>
+
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hddt_form">
+        <field name="name">wg.account.invoice.form</field>
+        <field name="model">wg.account.invoice</field>
+        <field name="arch" type="xml">
+            <form string="Hóa đơn điện tử">
+                <header>
+                    <button name="compute_tax" class="btn btn-primary oe_right" string="Tính thuế suất" type="object" icon="fa-calculator" />
+
+                    <button name="tvan_view_pdf" string="Xem hóa đơn" type="object" icon="fa-print" data-hotkey="v"/>
+                    <!-- <button name="wg_sign_invoice_vat" string="Ký hóa đơn" class="btn-primary" type="object" data-hotkey="x" attrs="{'invisible': [('attachment_sign_id', '!=', False)]}"/> -->
+
+                    <button name="set_xml_data" attrs="{'invisible': [('attachment_origin_id', '!=', False)]}" string="Get XML" type="object" icon="fa-eye"/>
+
+                    <button name="tvan_sign_with_hsm" string="Ký Hoá đơn" type="object" icon="fa-pencil" attrs="{'invisible': ['|', '|', ('using_cts_hsm', '=', False), ('attachment_sign_id', '!=', False), ('attachment_origin_id', '=', False)]}"/>
+
+                    <button name="wg_send_tct" attrs="{'invisible': ['|', ('attachment_sign_id', '=', False), ('MTDiep', '!=', False)]}" string="Gửi CQT" type="object" icon="fa-send"/>
+
+                    <button name="tvan_search" string="Tra cứu" type="object" icon="fa-search" attrs="{'invisible': [('MTDiep', '=', False)]}"/>
+
+
+                    <!-- <button name="wg_sign_invoice_vat" string="Ký hóa đơn" class="btn-primary" type="object" data-hotkey="x" attrs="{'invisible': ['|', ('state', '!=', '0'), ('attachment_origin_id', '!=', False)]}" icon="fa-bullhorn"/> -->
+
+                    <button name="wg_handle" string="Xử lý Hóa đơn" type="object" states="1"/>
+                    <field name="state" widget="statusbar" statusbar_visible="0,1"/>
+                </header>
+                <sheet>
+                    <group class="main-group">
+                        <group class="group-left" string="THÔNG TIN NGƯỜI MUA HÀNG">
+                            <field name="using_cts_hsm" invisible="1"/>
+                            <field name="partner_type" widget="radio" options="{'horizontal': true}"/>
+                            <field name="partner_id" class="oe_edit_only"/>
+                            <field name="MKHang" string="Mã khách hàng"/>
+                            <field name="HVTNMHang" string="Tên người mua" attrs="{'invisible': [('partner_type', '!=', '1')], 'required': [('partner_type', '=', '1')]}"/>
+                            <field name="TenNMua" string="Đơn vị mua" widget="text" attrs="{'required': [('partner_type', '=', '0')]}"/>
+                            <label for="MSTNMua" string="Mã số thuế"/>
+                            <div class="o_row">
+                                <field name="MSTNMua" attrs="{'required': [('partner_type', '=', '0')]}" placeholder="Tìm Công ty theo MST, tên, địa chỉ, ..."/>
+                                <label for="field_boolean_find_company" class="btn btn-primary oe_edit_only" style="color: white"/>
+                                <div style="display:none;">
+                                    <field name="field_boolean_find_company"/>
+                                </div>
+                            </div>
+                            <!-- <field name="MSTNMua" string="Mã số thuế" attrs="{'required': [('partner_type', '=', '0')]}"/> -->
+                            <field name="DChiNMua" widget="text" string="Địa chỉ" attrs="{'required': [('partner_type', '=', '0')]}"/>
+                            <field name="DCTDTuNMua" string="Email"/>
+                            <field name="STKNHangNMua" string="Số tài khoản"/>
+                            <field name="TNHangNMua" string="Tên ngân hàng"/>
+                        </group>
+                        <group class="group-right" string="THÔNG TIN HÓA ĐƠN">
+                            <label for="TCHDon" string="Là hóa đơn" attrs="{'invisible': [('TCHDon', '=', '0')]}"/>
+                            <div class="o_row" attrs="{'invisible': [('TCHDon', '=', '0')]}">
+                                <field name="TCHDon"/>
+                                <label for="adjust_for_id" class="font-weight-bold" string="cho HĐ" attrs="{'invisible': [('TCHDon', '=', '0')]}"/>
+                                <field name="adjust_for_id" attrs="{'invisible': [('TCHDon', '=', '0')]}" options="{'no_create': 1}" domain="[('TCHDon', '=', '0')]"/>
+                            </div>
+                            <field name="KHMSHDonTT78" invisible="1"/>
+                            <label for="inv_serial_id" string="Ký hiệu"/>
+                            <div class="o_row">
+                                <!-- TODO -->
+                                <field name="inv_serial_id" options="{'no_create': 1, 'no_open': 1}"/>
+                                <label for="SHDon" class="font-weight-bold" string="số"/>
+                                <field name="SHDon"/>
+                                <label for="NLap" class="font-weight-bold" string="ngày lập"/>
+                                <field name="NLap"/>
+                            </div> 
+                            <!-- <field name="inv_serial_note"/> -->
+                            <field name="KHMSHDon" invisible="1"/>
+                            <field name="KHHDon" invisible="1"/>
+
+                            <label for="DVTTe"/>
+                            <div class="o_row">
+                                <field name="DVTTe"/>
+                                <label for="TGia" class="font-weight-bold"/>
+                                <field name="TGia"/>
+                            </div>
+                            <field name="HTTToan"/>
+                            <field name="email_cc" placeholder="Các email cách nhau bởi dấu phẩy ','"/>
+                            <separator string="THÔNG TIN KHÁC"/>
+                            <field name="extend_value"/>
+                            <label for="SBKe" attrs="{'invisible': [('extend_value', '=', False)]}"/>
+                            <div class="o_row"  attrs="{'invisible': [('extend_value', '=', False)]}">
+                                <field name="SBKe"/>
+                                <label for="NBKe"/>
+                                <field name="NBKe"/>
+                            </div>
+                            <field name="SDThoaiNMua" string="Số điện thoại" attrs="{'invisible': [('extend_value', '=', False)]}"/>    
+
+                            <field name="TgTTTBChu"/>                        
+                            <field name="MCCQT"/>  
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="page-product" string="Chi tiết hàng hóa/dịch vụ">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id" class="oe_edit_only"/>
+                                    <field name="MHHDVu" string="Mã HH/DV"/>
+                                    <field name="THHDVu" string="Tên HH/DV" widget="text"/>
+                                    <field name="DVTinh" string="ĐVT"/>
+                                    <field name="SLuong" sum="Tổng số lượng"/>
+                                    <field name="DGia" widget="float"/>
+                                    <field name="TLCKhau"/>
+                                    <field name="STCKhau" readonly="1" force_save="1" sum="Tổng chiết khấu"/>
+                                    <field name="ThTien" string="TT chưa VAT" readonly="1" force_save="1" sum="Tổng thành tiền chưa thuế"/>
+                                    <field name="TSuat"/>
+                                    <field name="TThue" sum="Tổng tiền thuế"/>
+                                    <field name="price_total" sum="Tổng tiền đã bao gồm thuế" widget="integer"/>
+                                    <field name="TChat"/>
+                                    <field name="company_id" invisible="1"/>
+                                </tree>
+                            </field>
+                            <group>
+                                <group string="Các loại phí">
+                                    <field name="fee_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="sequence" widget="handle"/>
+                                            <field name="name"/>
+                                            <field name="value" sum="sum"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                                <group string="Thuế suất">
+                                    <field name="tax_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="sequence" widget="handle"/>
+                                            <field name="TSuat"/>
+                                            <field name="ThTien" sum="sum"/>
+                                            <field name="TThue" sum="sum"/>
+                                            <field name="price_total" sum="sum"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </group>
+
+                        </page>                        
+                        <page name="page-other" groups="base.group_no_one" string="Thông tin khác">
+                            <group>
+                                <group>
+                                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                                    <field name="portal_token"/>
+                                    <field name="MTDiep" widget="text"/>                                    
+                                </group>
+                                <group>
+                                    <field name="attachment_origin_id"/>
+                                    <field name="attachment_sign_id"/>
+                                    <field name='attachment_link'/>                          
+                                    <field name="NKy"/>
+                                </group>
+                            </group>
+                        </page>                
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <!-- <field name="message_follower_ids" groups="base.group_user"/> -->
+                    <!-- <field name="activity_ids"/> -->
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hddt_gtgt" model="ir.actions.act_window">
+        <field name="name">Hóa đơn GTGT</field>
+        <field name="res_model">wg.account.invoice</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('KHMSHDonTT78', '=', '1')]</field>
+        <field name="context">{'default_KHMSHDonTT78': '1'}</field>
+    </record>
+
+    <record id="action_hddt_popup" model="ir.actions.act_window">
+        <field name="name">Xem hóa đơn</field>
+        <field name="res_model">wg.account.invoice</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="hddt_popup_form"/>
+    </record>
+
+    <record id="action_hddt_tem" model="ir.actions.act_window">
+        <field name="name">Tem/Vé điện tử</field>
+        <field name="res_model">wg.account.invoice</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('KHMSHDonTT78', '=', '5')]</field>
+        <field name="context">{'default_KHMSHDonTT78': '5', 'default_partner_type': '1'}</field>
+    </record>
+
+    <record id="action_hddt_pxk" model="ir.actions.act_window">
+        <field name="name">Phiếu xuất kho kiêm vận chuyển nội bộ</field>
+        <field name="res_model">wg.account.invoice</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('KHMSHDonTT78', '=', '6')]</field>
+        <field name="context">{'default_KHMSHDonTT78': '6'}</field>
+    </record>
+
+</odoo>

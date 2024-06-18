@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Mẫu hóa đơn -->
+    <record model="ir.ui.view" id="wg_inv_serial_tree">
+        <field name="name">wg.inv.serial.tree</field>
+        <field name="model">wg.inv.serial</field>
+        <field name="arch" type="xml">
+            <tree string="Mẫu hoá đơn đã đăng ký phát hành">
+                <field name="create_uid" optional="show"/>
+                <field name="create_date" optional="show"/>
+                <field name="write_uid" optional="show"/>
+                <field name="write_date" optional="show"/>
+                <field name="KHMSHDonTT78"/>
+                <field name="name"/>
+                <field name="serial"/>
+                <field name="note"/>
+                <field name="quantity"/>
+                <field name="from_qty"/>
+                <field name="to_qty"/>
+                <field name="current_number"/>
+                <field name="residual"/>
+                <field name="date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="wg_inv_serial_form">
+        <field name="name">wg.inv.serial.form</field>
+        <field name="model">wg.inv.serial</field>
+        <field name="arch" type="xml">
+            <form string="Mẫu hoá đơn đã đăng ký phát hành">
+                <header>
+                    <button name="test_print" states="new" string="Test print" type="object" icon="fa-print"/>
+                    <button name="action_confirm" class="oe_highlight" states="new" string="Xác nhận mẫu" type="object" icon="fa-send"/>
+                    <button name="action_draft" states="use,cancel" string="Đặt lại" type="object" icon="fa-refresh"/>
+                    <button name="action_cancel" states="new,use" string="Hủy mẫu" type="object" icon="fa-trash"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="order_id" invisible="1"/>
+                            <field name="KHMSHDonTT78"/>
+                            <field name="THDon" invisible="1"/>
+                            <field name="name"/>
+                            <field name="serial"/>
+                            <field name="note"/>                                                        
+                        </group>
+                        <group>
+                            <field name="date" invisible="1"/>
+                            <field name="quantity" readonly="1" force_save="1"/>
+                            <field name="from_qty" readonly="1" force_save="1"/>
+                            <field name="to_qty" readonly="1" force_save="1"/>
+                            <field name="current_number" readonly="1" force_save="1"/>
+                            <field name="residual" readonly="1" force_save="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="diplay-config" string="Thông tin trên hoá đơn">
+                            <group>
+                                <group string="Thông tin công ty">
+                                    <field name="partner_vat" readonly="0"/>
+                                    <field name="partner_name" readonly="0"/>
+                                    <field name="partner_address" readonly="0" widget="text"/>
+                                    <field name="partner_email" readonly="0"/>
+                                    <field name="partner_phone" readonly="0"/>
+                                    <field name="partner_website" readonly="0"/>
+                                    <field name="partner_bank_info" readonly="0" widget="text"/>
+
+                                    <separator string="Mẫu hoá đơn"/>
+                                    <field name="inv_template_id" options="{'no_create': 1, 'no_open': 1}"/>
+                                    <field name="inv_template_data" filename="inv_template_filename"/>
+                                    <field name="inv_template_filename" invisible="1"/>
+                                    <field name="samplte_data_id" options="{'no_create': 1}"/>
+                                    <field name="template_code"/>
+                                </group>
+                                <group string="Cấu hình hiển thị">
+                                    <field name="image_logo" widget="image" width="100" height="100"/>
+                                    <field name="image_background" widget="image" width="200" height="200"/>
+                                    <button name="opacity_background_image" string="Làm mờ ảnh nền" type="object"/>
+                                    <field name="image_sign" widget="image" width="300" height="100"/>
+                                    <field name="sign_display_id" options="{'no_create': 1, 'no_open': 1}"/>
+                                    <field name="attachment_id" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="hddt_popup_form2">
+        <field name="name">wg.inv.serial.popup.form</field>
+        <field name="model">wg.inv.serial</field>
+        <field name="priority">1106</field>
+        <field name="arch" type="xml">
+            <form string="Hóa đơn điện tử" edit="0" create="0">
+                <header>                    
+                    <button name="wg_download_invoice" string="Tải hóa đơn" type="object" data-hotkey="d" icon="fa-download"/>
+                </header>
+                <sheet>
+                    <field name="attachment_id" invisible="1"/>
+                    <field name="pdf_preview" widget="pdf_viewer" readonly="1"/>
+                </sheet>
+                <footer>
+
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_hddt_popup2" model="ir.actions.act_window">
+        <field name="name">Xem hóa đơn mẫu</field>
+        <field name="res_model">wg.inv.serial</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="hddt_popup_form2"/>
+    </record>
+
+    <record id="action_inv_serial" model="ir.actions.act_window">
+        <field name="name">Mẫu hoá đơn đã đăng ký phát hành</field>
+        <field name="res_model">wg.inv.serial</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

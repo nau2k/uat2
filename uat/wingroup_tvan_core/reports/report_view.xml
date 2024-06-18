@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="invoice_vat_pdf2" model="ir.actions.report">
+        <field name="name">Hoá đơn điện tử</field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">wg.account.invoice</field>
+        <field name="report_name">invoice_vat2</field>
+        <field name="report_type">aeroo</field>
+        <field name="in_format">oo-odt</field>
+        <field name="out_format" model="report.mimetypes"
+               search="[('code','=','oo-pdf')]"/>
+        <!-- <field name="report_file">wingroup_tvan_core/reports/invoice_vat.odt</field> -->
+        <field name="tml_source">database</field>
+        <field name="report_data" type="base64" file="wingroup_tvan_core/reports/invoice_vat2.odt"/>
+        <field name="print_report_name">'Hoá đơn - %s - %s' % (object.MSTNMua, object.partner_buyer_name)</field>
+        <field name="binding_model_id" ref=""/>
+    </record>
+
+
+</odoo>

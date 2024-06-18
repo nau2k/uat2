@@ -1,0 +1,173 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* partner_vn_localization
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-07 03:13+0000\n"
+"PO-Revision-Date: 2020-05-07 03:13+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_vn_localization
+#: model_terms:ir.ui.view,arch_db:partner_vn_localization.district_res_partner_form
+msgid "<span modifiers=\"{}\">Door</span>"
+msgstr "<span modifiers=\"{}\">Ngõ</span>"
+
+#. module: partner_vn_localization
+#: model_terms:ir.ui.view,arch_db:partner_vn_localization.district_res_partner_form
+msgid "<span modifiers=\"{}\">House</span>"
+msgstr "<span modifiers=\"{}\">Số nhà</span>"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__active
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__active
+msgid "Active"
+msgstr "Có hiệu lực"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_partner__address2
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_users__address2
+#: model_terms:ir.ui.view,arch_db:partner_vn_localization.district_res_partner_form
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: partner_vn_localization
+#: model:ir.model,name:partner_vn_localization.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__create_uid
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__create_date
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__create_date
+msgid "Created on"
+msgstr "Thời điểm tạo"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__display_name
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: partner_vn_localization
+#: model:ir.actions.act_window,name:partner_vn_localization.as_vn_address_district_action
+#: model:ir.model,name:partner_vn_localization.model_res_country_district
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__district_id
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_partner__district_id
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_users__district_id
+#: model:ir.ui.menu,name:partner_vn_localization.viet_nam_district_menu
+#: model_terms:ir.ui.view,arch_db:partner_vn_localization.district_res_partner_form
+msgid "District"
+msgstr "Quận/Huyện"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__code
+msgid "District Code"
+msgstr "Mã Quận/Huyện"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__name
+msgid "District Name"
+msgstr "Tên Quận/Huyện"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_partner__door
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_users__door
+msgid "Door"
+msgstr "Ngõ"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_partner__house
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_users__house
+msgid "House"
+msgstr "Số nhà"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__id
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__id
+msgid "ID"
+msgstr ""
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district____last_update
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__write_uid
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__write_date
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_district__state_id
+msgid "Province"
+msgstr "Tỉnh/TP"
+
+#. module: partner_vn_localization
+#: model:ir.actions.act_window,name:partner_vn_localization.as_vn_address_province_action
+#: model:ir.ui.menu,name:partner_vn_localization.viet_nam_province_menu
+msgid "Province/City"
+msgstr "Tỉnh/TP"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_partner__short_name
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_users__short_name
+#: model_terms:ir.ui.view,arch_db:partner_vn_localization.district_res_partner_form
+msgid "Short Name"
+msgstr "Tên viêt tắt"
+
+#. module: partner_vn_localization
+#: model_terms:ir.ui.view,arch_db:partner_vn_localization.district_res_partner_form
+msgid "State"
+msgstr "Tỉnh/TP"
+
+#. module: partner_vn_localization
+#: model_terms:ir.ui.view,arch_db:partner_vn_localization.district_res_partner_form
+msgid "VAT"
+msgstr "Mã số thuế"
+
+#. module: partner_vn_localization
+#: model:ir.ui.menu,name:partner_vn_localization.viet_nam_address_root
+msgid "Viet Nam Address"
+msgstr "Địa chỉ"
+
+#. module: partner_vn_localization
+#: model:ir.actions.act_window,name:partner_vn_localization.as_vn_address_ward_action
+#: model:ir.model,name:partner_vn_localization.model_res_country_ward
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_partner__ward_id
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_users__ward_id
+#: model:ir.ui.menu,name:partner_vn_localization.viet_nam_ward_menu
+#: model_terms:ir.ui.view,arch_db:partner_vn_localization.district_res_partner_form
+msgid "Ward"
+msgstr "Phường/Xã"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__code
+msgid "Ward Code"
+msgstr "Mã Phường/Xã"
+
+#. module: partner_vn_localization
+#: model:ir.model.fields,field_description:partner_vn_localization.field_res_country_ward__name
+msgid "Ward Name"
+msgstr "Tên Phường/Xã"
+

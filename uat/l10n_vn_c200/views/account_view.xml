@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_list_inherit" model="ir.ui.view">
+        <field name="name">account.account.tree.inherit</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_list"/>
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="default_order">code</attribute>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,241 @@
+id,name,code,user_type_id/id,reconcile,chart_template_id/id
+he_thong_tai_khoan0,HỆ THỐNG TÀI KHOẢN,0,account.data_account_off_sheet,0,vn_template
+tai_san_ngan_han1,TÀI SẢN NGẮN HẠN,1,account.data_account_off_sheet,0,vn_template
+tien_mat111,Tiền mặt,111,account.data_account_off_sheet,0,vn_template
+tien_ngan_hang112,Tiền gửi Ngân hàng,112,account.data_account_off_sheet,0,vn_template
+transfer_account_id,Tiền đang chuyển,113,account.data_account_type_current_assets,1,vn_template
+vn_template_liquidity_transfer,Tiền đang chuyển,1131,account.data_account_type_current_assets,1,vn_template
+chung_khoan_kinh_doanh121,Chứng khoán kinh doanh,121,account.data_account_off_sheet,0,vn_template
+chart1211,Cổ phiếu,1211,account.data_account_type_current_assets,0,vn_template
+chart1212,"Trái phiếu, Tín phiếu, Kỳ phiếu",1212,account.data_account_type_current_assets,0,vn_template
+chart1218,Chứng khoán và công cụ tài chính khác,1218,account.data_account_type_current_assets,0,vn_template
+dau_tu_den_ngay_dao_han128,Đầu tư nắm giữ đến ngày đáo hạn,128,account.data_account_off_sheet,0,vn_template
+chart1281,Tiền gửi có kỳ hạn,1281,account.data_account_type_current_assets,0,vn_template
+chart1282,Trái phiếu có kỳ hạn,1282,account.data_account_type_current_assets,0,vn_template
+chart1283,Cho vay,1283,account.data_account_type_current_assets,0,vn_template
+chart1288,Các khoản đầu tư khác nắm giữ đến ngày đáo hạn,1288,account.data_account_type_current_assets,0,vn_template
+chart131,Phải thu của khách hàng,1311,account.data_account_type_receivable,1,vn_template
+chart132,Phải thu của khách hàng (POS),1312,account.data_account_type_receivable,1,vn_template
+thue_duoc_khau_tru133,Thuế GTGT được khấu trừ,133,account.data_account_off_sheet,0,vn_template
+chart1331,"Thuế GTGT được khấu trừ của hàng hoá, dịch vụ
+        ",1331,account.data_account_type_current_assets,0,vn_template
+chart1332,Thuế GTGT được khấu trừ của TSCĐ,1332,account.data_account_type_current_assets,0,vn_template
+phai_thu_noi_bo136,Phải thu nội bộ,136,account.data_account_off_sheet,0,vn_template
+chart1361,Vốn kinh doanh ở đơn vị trực thuộc,1361,account.data_account_type_current_assets,0,vn_template
+chart1362,Phải thu nội bộ về chênh lệch tỷ giá,1362,account.data_account_type_current_assets,0,vn_template
+chart1363,Phải thu nội bộ về chi phí đi vay đủ điều kiện được vốn hoá,1363,account.data_account_type_current_assets,0,vn_template
+chart1368,Phải thu nội bộ khác,1368,account.data_account_type_current_assets,0,vn_template
+phai_thu_khac138,Phải thu khác,138,account.data_account_off_sheet,0,vn_template
+chart1381,Tài sản thiếu chờ xử lý,1381,account.data_account_type_current_assets,0,vn_template
+chart1385,Phải thu về cổ phần hoá,1385,account.data_account_type_current_assets,0,vn_template
+chart1388,Phải thu khác,1388,account.data_account_type_current_assets,0,vn_template
+chart141,Tạm ứng,141,account.data_account_type_current_assets,0,vn_template
+chart151,Hàng hóa mua đang đi trên đường,151,account.data_account_type_current_assets,0,vn_template
+chart152,"Nguyên liệu, vật liệu",152,account.data_account_type_current_assets,0,vn_template
+con_cu_dung_cu153,"Công cụ, dụng cụ",153,account.data_account_off_sheet,0,vn_template
+chart1531,"Công cụ, dụng cụ",1531,account.data_account_type_current_assets,0,vn_template
+chart1532,Bao bì luân chuyển,1532,account.data_account_type_current_assets,0,vn_template
+chart1533,Đồ dùng cho thuê,1533,account.data_account_type_current_assets,0,vn_template
+chart1534,"Thiết bị, phụ tùng thay thế",1534,account.data_account_type_current_assets,0,vn_template
+chart154,Chi phí sản xuất kinh doanh dở dang,154,account.data_account_type_current_assets,0,vn_template
+thanh_pham155,Thành phẩm,155,account.data_account_off_sheet,0,vn_template
+chart1551,Thành phẩm nhập kho,1551,account.data_account_type_current_assets,0,vn_template
+chart1557,Thành phẩm bất động sản,1557,account.data_account_type_current_assets,0,vn_template
+hang_hoa156,Hàng hóa,156,account.data_account_off_sheet,0,vn_template
+chart1561,Giá mua hàng hoá,1561,account.data_account_type_current_assets,0,vn_template
+chart1562,Chi phí thu mua hàng hoá,1562,account.data_account_type_current_assets,0,vn_template
+chart1567,Hàng hoá bất động sản,1567,account.data_account_type_current_assets,0,vn_template
+chart157,Hàng gửi đi bán,157,account.data_account_type_current_assets,0,vn_template
+chart158,Hàng hoá kho bảo thuế,158,account.data_account_type_current_assets,0,vn_template
+chi_su_nghiep161,Chi sự nghiệp,161,account.data_account_off_sheet,0,vn_template
+chart1611,Chi sự nghiệp năm trước,1611,account.data_account_type_current_assets,0,vn_template
+chart1612,Chi sự nghiệp năm nay,1612,account.data_account_type_current_assets,0,vn_template
+chart171,Giao dịch mua bán lại trái phiếu chính phủ,171,account.data_account_type_current_assets,0,vn_template
+tai_san_dai_han2,TÀI SẢN DÀI HẠN,2,account.data_account_off_sheet,0,vn_template
+ts_co_dinh_huu_hinh211,Tài sản cố định hữu hình,211,account.data_account_off_sheet,0,vn_template
+chart2111,"Nhà cửa, vật kiến trúc",2111,account.data_account_type_non_current_assets,0,vn_template
+chart2112,"Máy móc, thiết bị",2112,account.data_account_type_non_current_assets,0,vn_template
+chart2113,Phương tiện vận tải truyền dẫn,2113,account.data_account_type_non_current_assets,0,vn_template
+chart2114,"Thiết bị, dụng cụ quản lý",2114,account.data_account_type_non_current_assets,0,vn_template
+chart2115,"Cây lâu năm, súc vật làm việc và cho sản phẩm
+        ",2115,account.data_account_type_non_current_assets,0,vn_template
+chart2118,Tài sản cố định khác,2118,account.data_account_type_non_current_assets,0,vn_template
+ts_co_dinh_thue_tai_chinh212,Tài sản cố định thuê tài chính,212,account.data_account_off_sheet,0,vn_template
+chart2121,Tài sản cố định hữu hình thuê tài chính,2121,account.data_account_type_non_current_assets,0,vn_template
+chart2122,Tài sản cố định vô hình thuê tài chính,2122,account.data_account_type_non_current_assets,0,vn_template
+ts_co_dinh_vo_hinh213,Tài sản cố định vô hình,213,account.data_account_off_sheet,0,vn_template
+chart2131,Quyền sử dụng đất,2131,account.data_account_type_non_current_assets,0,vn_template
+chart2132,Quyền phát hành,2132,account.data_account_type_non_current_assets,0,vn_template
+chart2133,"Bản quyền, bằng sáng chế",2133,account.data_account_type_non_current_assets,0,vn_template
+chart2134,"Nhãn hiệu, tên thương mại",2134,account.data_account_type_non_current_assets,0,vn_template
+chart2135,Chương trình phần mềm,2135,account.data_account_type_non_current_assets,0,vn_template
+chart2136,Giấy phép và giấy phép nhượng quyền,2136,account.data_account_type_non_current_assets,0,vn_template
+chart2138,Tài sản cố định vô hình khác,2138,account.data_account_type_non_current_assets,0,vn_template
+hao_mon_ts_co_dinh214,Hao mòn tài sản cố định,214,account.data_account_off_sheet,0,vn_template
+chart2141,Hao mòn TSCĐ cố định hữu hình,2141,account.data_account_type_non_current_assets,0,vn_template
+chart2142,Hao mòn TSCĐ thuê tài chính,2142,account.data_account_type_non_current_assets,0,vn_template
+chart2143,Hao mòn TSCĐ vô hình,2143,account.data_account_type_non_current_assets,0,vn_template
+chart2147,Hao mòn bất động sản đầu tư,2147,account.data_account_type_non_current_assets,0,vn_template
+chart217,Bất động sản đầu tư,217,account.data_account_type_non_current_assets,0,vn_template
+chart221,Đầu tư vào công ty con,221,account.data_account_type_non_current_assets,0,vn_template
+chart222,>Đầu tư vào công ty liên doanh,222,account.data_account_type_non_current_assets,0,vn_template
+dau_tu_khac228,Đầu tư khác,228,account.data_account_off_sheet,0,vn_template
+chart2281,>Đầu tư góp vốn vào đơn vị khác,2281,account.data_account_type_non_current_assets,0,vn_template
+chart2288,Đầu tư dài hạn khác,2288,account.data_account_type_non_current_assets,0,vn_template
+du_phong_ton_that_ts229,Dự phòng tổn thất tài sản,229,account.data_account_off_sheet,0,vn_template
+chart2291,Dự phòng giảm giá chứng khoán kinh doanh,2291,account.data_account_type_non_current_assets,0,vn_template
+chart2292,Dự phòng tổn thất đầu tư vào đơn vị khác,2292,account.data_account_type_non_current_assets,0,vn_template
+chart2293,Dự phòng phải thu khó đòi,2293,account.data_account_type_non_current_assets,0,vn_template
+chart2294,Dự phòng giảm giá hàng tồn kho,2294,account.data_account_type_non_current_assets,0,vn_template
+xay_dung_co_ban_do_dang241,Xây dựng cơ bản dở dang,241,account.data_account_off_sheet,0,vn_template
+chart2411,Mua sắm TSCĐ,2411,account.data_account_type_non_current_assets,0,vn_template
+chart2412,Xây dựng cơ bản,2412,account.data_account_type_non_current_assets,0,vn_template
+chart2413,Sửa chữa lớn TSCĐ,2413,account.data_account_type_non_current_assets,0,vn_template
+chart242,Chi phí trả trước dài hạn,242,account.data_account_type_non_current_assets,0,vn_template
+chart243,Tài sản thuế thu nhập hoãn lại,243,account.data_account_type_non_current_assets,0,vn_template
+chart244,"Cầm cố, thế chấp, ký quỹ, ký cược",244,account.data_account_type_non_current_assets,0,vn_template
+no_phai_tra3,NỢ PHẢI TRẢ,3,account.data_account_off_sheet,0,vn_template
+chart331,Phải trả người bán,331,account.data_account_type_payable,1,vn_template
+thue_va_cac_khoan_phai_nop333,Thuế và các khoản phải nộp Nhà nước,333,account.data_account_off_sheet,0,vn_template
+chart3331,Thuế giá trị gia tăng phải nộp,3331,account.data_account_type_current_liabilities,0,vn_template
+chart33311,Thuế GTGT đầu ra,33311,account.data_account_type_current_liabilities,0,vn_template
+chart33312,Thuế GTGT hàng nhập khẩu,33312,account.data_account_type_current_liabilities,0,vn_template
+chart3332,Thuế tiêu thụ đặc biệt,3332,account.data_account_type_current_liabilities,0,vn_template
+chart3333,"Thuế xuất, nhập khẩu",3333,account.data_account_type_current_liabilities,0,vn_template
+chart3334,Thuế thu nhập doanh nghiệp,3334,account.data_account_type_current_liabilities,0,vn_template
+chart3335,Thuế thu nhập cá nhân,3335,account.data_account_type_current_liabilities,0,vn_template
+chart3336,Thuế tài nguyên,3336,account.data_account_type_current_liabilities,0,vn_template
+chart3337,"Thuế nhà đất, tiền thuê đất",3337,account.data_account_type_current_liabilities,0,vn_template
+chart3338,Các loại thuế môi trường và các loại thuế khác,3338,account.data_account_type_current_liabilities,0,vn_template
+chart33381,Các loại thuế môi trường,33381,account.data_account_type_current_liabilities,0,vn_template
+chart33382,Các loại thuế khác,33382,account.data_account_type_current_liabilities,0,vn_template
+chart3339,"Phí, lệ phí và các khoản phải nộp khác",3339,account.data_account_type_current_liabilities,0,vn_template
+phai_trai_nguoi_lao_dong334,Phải trả người lao động,334,account.data_account_off_sheet,0,vn_template
+chart3341,Phải trả công nhân viên,3341,account.data_account_type_current_liabilities,0,vn_template
+chart3348,Phải trả người lao động khác,3348,account.data_account_type_current_liabilities,0,vn_template
+chart335,Chi phí phải trả,335,account.data_account_type_current_liabilities,0,vn_template
+phai_tra_noi_bo336,Phải trả nội bộ,336,account.data_account_off_sheet,0,vn_template
+chart3361,Phải trả nội bộ về vốn kinh doanh ,3361,account.data_account_type_current_liabilities,0,vn_template
+chart3362,Phải trả nội bộ về vốn chênh lệch tỷ giá,3362,account.data_account_type_current_liabilities,0,vn_template
+chart3363,Phải trả nội bộ về chi phí đi vay đủ điều kiện được vốn hoá,3363,account.data_account_type_current_liabilities,0,vn_template
+chart3368,Phải trả nội bộ khác,3368,account.data_account_type_current_liabilities,0,vn_template
+chart337,Thanh toán theo tiến độ kế hoạch hợp đồng xây dựng,337,account.data_account_type_current_liabilities,0,vn_template
+phai_tra_phai_nop_khac338,"Phải trả, phải nộp khác",338,account.data_account_off_sheet,0,vn_template
+chart3381,Tài sản thừa chờ giải quyết,3381,account.data_account_type_current_liabilities,0,vn_template
+chart3382,Kinh phí công đoàn,3382,account.data_account_type_current_liabilities,0,vn_template
+chart3383,Bảo hiểm xã hội,3383,account.data_account_type_current_liabilities,0,vn_template
+chart3384,Bảo hiểm y tế,3384,account.data_account_type_current_liabilities,0,vn_template
+chart3385,Phải trả về cổ phần hoá,3385,account.data_account_type_current_liabilities,0,vn_template
+chart3386,Bảo hiểm thất nghiệp,3386,account.data_account_type_current_liabilities,0,vn_template
+chart3387,Doanh thu chưa thực hiện,3387,account.data_account_type_current_liabilities,0,vn_template
+chart3388,"Phải trả, phải nộp khác",3388,account.data_account_type_current_liabilities,0,vn_template
+vay_va_thue_no_tai_chinh341,Vay và nợ thuê tài chính,341,account.data_account_off_sheet,0,vn_template
+chart3411,Các khoản đi vay,3411,account.data_account_type_current_liabilities,0,vn_template
+chart3412,Nợ thuê tài chính,3412,account.data_account_type_current_liabilities,0,vn_template
+trai_phieu_phat_hanh343,Trái phiếu phát hành,343,account.data_account_off_sheet,0,vn_template
+chart3431,Trái phiếu ,3431,account.data_account_type_current_liabilities,0,vn_template
+chart34311,Mệnh giá trái phiếu,34311,account.data_account_type_current_liabilities,0,vn_template
+chart34312,Chiết khấu trái phiếu,34312,account.data_account_type_current_liabilities,0,vn_template
+chart34313,Phụ trội trái phiếu,34313,account.data_account_type_current_liabilities,0,vn_template
+chart3432,Trái phiếu chuyển đổi,3432,account.data_account_type_current_liabilities,0,vn_template
+chart344,"Nhận ký quỹ, ký cược dài hạn",344,account.data_account_type_current_liabilities,0,vn_template
+chart347,Thuế thu nhập hoãn lại phải trả,347,account.data_account_type_current_liabilities,0,vn_template
+du_phong_phai_tra352,Dự phòng phải trả,352,account.data_account_off_sheet,0,vn_template
+chart3521,Dự phòng bảo hành sản phẩm hàng hóa,3521,account.data_account_type_current_liabilities,0,vn_template
+chart3522,Dự phòng bảo hành công trình xây dựng,3522,account.data_account_type_current_liabilities,0,vn_template
+chart3523,Dự phòng tái cơ cấu doanh nghiệp,3523,account.data_account_type_current_liabilities,0,vn_template
+chart3524,Dự phòng phải trả khác,3524,account.data_account_type_current_liabilities,0,vn_template
+quy_khen_thuong_phuc_loi353,Quỹ khen thưởng phúc lợi,353,account.data_account_off_sheet,0,vn_template
+chart3531,Quỹ khen thưởng,3531,account.data_account_type_current_liabilities,0,vn_template
+chart3532,Quỹ phúc lợi,3532,account.data_account_type_current_liabilities,0,vn_template
+chart3533,Quỹ phúc lợi đã hình thành TSCĐ,3533,account.data_account_type_current_liabilities,0,vn_template
+chart3534,Quỹ thưởng ban quản lý điều hành công ty,3534,account.data_account_type_current_liabilities,0,vn_template
+quy_pt_kh_cn356,Quỹ phát triển khoa học và công nghệ,356,account.data_account_off_sheet,0,vn_template
+chart3561,Quỹ phát triển khoa học và công nghệ,3561,account.data_account_type_current_liabilities,0,vn_template
+chart3562,Quỹ phát triển khoa học và công nghệ đã hình thành TSCĐ,3562,account.data_account_type_current_liabilities,0,vn_template
+chart357,Quỹ bình ổn giá,357,account.data_account_type_current_liabilities,0,vn_template
+von_chu_so_huu4,VỐN CHỦ SỞ HỮU,4,account.data_account_off_sheet,0,vn_template
+von_dau_tu_cua_owner411,Vốn đầu tư của chủ sở hữu,411,account.data_account_off_sheet,0,vn_template
+chart4111,Vốn đầu tư chủ sỡ hữu,4111,account.data_account_type_equity,0,vn_template
+chart41111,Cổ phiếu phổ thông có quyền biểu quyết,41111,account.data_account_type_equity,0,vn_template
+chart41112,Cổ phiếu ưu đãi,41112,account.data_account_type_equity,0,vn_template
+chart4112,Thặng dư vốn cổ phần,4112,account.data_account_type_equity,0,vn_template
+chart4113,Quyền chọn chuyển đổi trái phiếu,4113,account.data_account_type_equity,0,vn_template
+chart4118,Vốn khác,4118,account.data_account_type_equity,0,vn_template
+chart412,Chênh lệch đánh giá lại tài sản,412,account.data_account_type_equity,0,vn_template
+chenh_lech_ty_gia413,Chênh lệch tỷ giá hối đoái,413,account.data_account_off_sheet,0,vn_template
+chart4131,Chênh lệch tỷ giá do đánh giá lại các khoản mục tiền tệ có gốc ngoại tệ,4131,account.data_account_type_equity,0,vn_template
+chart4132,Chênh lệch tỷ giá hối đoái trong giai đoạn trước hoạt động,4132,account.data_account_type_equity,0,vn_template
+chart414,Quỹ đầu tư phát triển,414,account.data_account_type_equity,0,vn_template
+chart417,Quỹ hỗ trợ sắp xếp doanh nghiệp,417,account.data_account_type_equity,0,vn_template
+chart418,Các quỹ khác thuộc vốn chủ sở hữu,418,account.data_account_type_equity,0,vn_template
+chart419,Cổ phiếu quỹ,419,account.data_account_type_equity,0,vn_template
+loi_nhuan_chua_pp421,Lợi nhuận chưa phân phối,421,account.data_account_off_sheet,0,vn_template
+chart4211,Lợi nhuận chưa phân phối năm trước,4211,account.data_account_type_equity,0,vn_template
+chart4212,Lợi nhuận chưa phân phối năm nay,4212,account.data_account_type_equity,0,vn_template
+chart441,Ngồn vố đầu tư xây dựng cơ bản,441,account.data_account_type_equity,0,vn_template
+nguon_kinh_phi_su_nghiep461,Nguồn kinh phí sự nghiệp,461,account.data_account_off_sheet,0,vn_template
+chart4611,Nguồn kinh phí sự nghiệp năm trước,4611,account.data_account_type_equity,0,vn_template
+chart4612,Nguồn kinh phí sự nghiệp năm nay,4612,account.data_account_type_equity,0,vn_template
+chart466,Nguồn kinh phí đã hình thành TSCĐ,466,account.data_account_type_equity,0,vn_template
+doanh_thu5,DOANH THU,5,account.data_account_off_sheet,0,vn_template
+doanh_thu_bh_ccdv511,Doanh thu bán hàng và cung cấp dịch vụ,511,account.data_account_off_sheet,0,vn_template
+chart5111,Doanh thu bán hàng hoá,5111,account.data_account_type_revenue,0,vn_template
+chart5112,Doanh thu bán các thành phẩm,5112,account.data_account_type_revenue,0,vn_template
+chart5113,Doanh thu cung cấp dịch vụ,5113,account.data_account_type_revenue,0,vn_template
+chart5114,"Doanh thu trợ cấp, trợ giá",5114,account.data_account_type_revenue,0,vn_template
+chart5117,Doanh thu kinh doanh bất động sản đầu tư,5117,account.data_account_type_revenue,0,vn_template
+chart5118,Doanh thu khác,5118,account.data_account_type_revenue,0,vn_template
+chart515,Doanh thu hoạt động tài chính,515,account.data_account_type_revenue,0,vn_template
+giam_tru_doanh_thu521,Các khoản giảm trừ doanh thu,521,account.data_account_off_sheet,0,vn_template
+chart5211,Chiết khấu thương mại,5211,account.data_account_type_revenue,0,vn_template
+chart5212,Giảm giá hàng bán,5212,account.data_account_type_revenue,0,vn_template
+chart5213,Hàng bán bị trả lại,5213,account.data_account_type_revenue,0,vn_template
+chi_phi_sx_kd6,"CHI PHÍ SẢN XUẤT, KINH DOANH",6,account.data_account_off_sheet,0,vn_template
+mua_hang611,Mua hàng,611,account.data_account_off_sheet,0,vn_template
+chart6111,"Mua nguyên liệu, vật liệu",6111,account.data_account_type_expenses,0,vn_template
+chart6112,Mua hàng hoá,6112,account.data_account_type_expenses,0,vn_template
+chart621,"Chi phí nguyên liệu, vật liệu trực tiếp",621,account.data_account_type_expenses,0,vn_template
+chart622,Chi phí nhân công trực tiếp,622,account.data_account_type_expenses,0,vn_template
+chi_phi_may_sd_thi_cong623,Chi phí sử dụng máy thi công,623,account.data_account_off_sheet,0,vn_template
+chart6231,Chi phí nhân công,6231,account.data_account_type_expenses,0,vn_template
+chart6232,Chi phí vật liệu,6232,account.data_account_type_expenses,0,vn_template
+chart6233,Chi phí dụng cụ sản xuất,6233,account.data_account_type_expenses,0,vn_template
+chart6234,Chi phí khấu hao máy thi công,6234,account.data_account_type_expenses,0,vn_template
+chart6237,Chi phí dịch vụ mua ngoài,6237,account.data_account_type_expenses,0,vn_template
+chart6238,Chi phí bằng tiền khác,6238,account.data_account_type_expenses,0,vn_template
+chi_phi_sx_chung627,Chi phí sản xuất chung,627,account.data_account_off_sheet,0,vn_template
+chart6271,Chi phí nhân viên phân xưởng,6271,account.data_account_type_expenses,0,vn_template
+chart6272,Chi phí vật liệu,6272,account.data_account_type_expenses,0,vn_template
+chart6273,Chi phí dụng cụ sản xuất,6273,account.data_account_type_expenses,0,vn_template
+chart6274,Chi phí khấu hao TSCĐ,6274,account.data_account_type_expenses,0,vn_template
+chart6277,Chi phí dịch vụ mua ngoài,6277,account.data_account_type_expenses,0,vn_template
+chart6278,Chi phí bằng tiền khác,6278,account.data_account_type_expenses,0,vn_template
+chart631,Giá thành sản xuất,631,account.data_account_type_expenses,0,vn_template
+chart632,Giá vốn hàng bán,632,account.data_account_type_expenses,0,vn_template
+chart635,Chi phí tài chính,635,account.data_account_type_expenses,0,vn_template
+chi_phi_ban_hang641,Chi phí bán hàng,641,account.data_account_off_sheet,0,vn_template
+chart6411,Chi phí nhân viên,6411,account.data_account_type_expenses,0,vn_template
+chart6412,"Chi phí vật liệu, bao bì",6412,account.data_account_type_expenses,0,vn_template
+chart6413,"Chi phí dụng cụ, đồ dùng",6413,account.data_account_type_expenses,0,vn_template
+chart6414,Chi phí khấu hao TSCĐ,6414,account.data_account_type_expenses,0,vn_template
+chart6415,Chi phí bảo hành,6415,account.data_account_type_expenses,0,vn_template
+chart6417,Chi phí dịch vụ mua ngoài,6417,account.data_account_type_expenses,0,vn_template
+chart6418,Chi phí bằng tiền khác,6418,account.data_account_type_expenses,0,vn_template
+chi_phi_quan_ly_dn642,Chi phí quản lý doanh nghiệp,642,account.data_account_off_sheet,0,vn_template
+chart6421,Chi phí nhân viên quản lý,6421,account.data_account_type_expenses,0,vn_template
+chart6422,Chi phí vật liệu quản lý,6422,account.data_account_type_expenses,0,vn_template
+chart6423,Chi phí đồ dùng văn phòng,6423,account.data_account_type_expenses,0,vn_template
+chart6424,Chi phí khấu hao tài sản cố định,6424,account.data_account_type_expenses,0,vn_template
+chart6425,"Thuế, phí và lệ phí",6425,account.data_account_type_expenses,0,vn_template
+chart6426,Chi phí dự phòng,6426,account.data_account_type_expenses,0,vn_template
+chart6427,Chi phí dịch vụ mua ngoài,6427,account.data_account_type_expenses,0,vn_template
+chart6428,Chi phí bằng tiền khác,6428,account.data_account_type_expenses,0,vn_template
+thu_nhap_khac7,LOẠI TÀI KHOẢN THU NHẬP KHÁC,7,account.data_account_off_sheet,0,vn_template
+chart711,Thu nhập khác,711,account.data_account_type_other_income,0,vn_template
+chi_phi_khac8,CHI PHÍ KHÁC,8,account.data_account_off_sheet,0,vn_template
+chart811,Chi phí khác,811,account.data_account_type_expenses,0,vn_template
+chi_phi_thue_thu_nhap_dn821,Chi phí thuế thu nhập doanh nghiệp,821,account.data_account_off_sheet,0,vn_template
+chart8211,Chi phí thuế TNDN hiện hành,8211,account.data_account_type_expenses,0,vn_template
+chart8212,Chi phí thuế TNDN hoãn lại,8212,account.data_account_type_expenses,0,vn_template
+chart911,Lợi nhuận/Chi phí chưa phân bổ,911,account.data_unaffected_earnings,0,vn_template

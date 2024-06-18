@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_company_form_tvan">
+        <field name="name">res.company.form TVAN</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <page name="general_info" position="before">
+                <page string="General Information" name="general_info">
+                    <group>
+                        <group string="Thông tin công ty">
+                            <field name="inv_display_id"/>
+                            <field name="CMTMTTien"/>
+                            <field name="CMTMTTien_prefix" attrs="{'invisible': [('CMTMTTien', '=', False)]}"/>
+                            <field name="cqt_code"/>
+                            <field name="cqt_name"/>
+                            <field name="cqt_ddanh"/>
+                            <field name="tvan_report_code"/>
+                        </group>
+                        <group string="Cấu hình HSM">
+                            <field name="using_cts_hsm"/>
+                            <field name="cts_hsm_link" attrs="{'invisible': [('using_cts_hsm', '=', False)], 'required': [('using_cts_hsm', '=', True)]}"/>
+                            <field name="cts_hsm_token" attrs="{'invisible': [('using_cts_hsm', '=', False)], 'required': [('using_cts_hsm', '=', True)]}"/>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+</odoo>

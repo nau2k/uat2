@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="create_partner_view">
+        <field name="name">wg.create.partner.wiz.form</field>
+        <field name="model">wg.create.partner.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Thông tin khách hàng">
+                <sheet>
+                    <group class="main_group">
+                        <group class="group_left">
+                            <field name="ref" required="0" string="Mã khách hàng (*)"/>
+                            <label for="vat" string="Mã số thuế (*)"/>
+                            <div class="o_row">
+                                <field name="vat" required="0"/>
+                                <button string="Lấy thông tin" class="btn-primary oe_edit_only" type="object" name="wg_find_partner"/>
+                            </div>
+                            <field name="name" required="0" string="Tên khách hàng (*)" widget="text"/>
+                            <field name="address2" required="0" string="Địa chỉ (*)" widget="text"/>
+                            <field name="email" string="Mail khách hàng"/>
+                        </group>
+                        <group class="right">
+                            <field name="buyer_name"/>
+                            <field name="phone" string="Số điện thoại"/>
+                            <field name="acc_bank_number"/>
+                            <field name="acc_bank_name"/>
+                            <field name="email_cc" string="Danh sách cc" widget="text" placeholder="Các email cách nhau bởi dấu phẩy ','"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="wg_save" string="Lưu thông tin" type="object" class="btn-primary"/>
+                    <button string="Hủy" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_create_partner" model="ir.actions.act_window">
+        <field name="name">Tạo Khách hàng mới</field>
+        <field name="res_model">wg.create.partner.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    
+</odoo>

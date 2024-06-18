@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Đăng ký sử dụng 01 -->
+    <record model="ir.ui.view" id="wg_inv_registry_tree">
+        <field name="name">wg.inv.registry.tree</field>
+        <field name="model">wg.inv.registry</field>
+        <field name="arch" type="xml">
+            <tree string="Tờ khai Đăng ký sử dụng hóa đơn điện tử">
+                <field name="date"/>
+                <field name="type"/>
+                <field name="partner_vat"/>
+                <field name="partner_name" widget="text"/>
+                <field name="cqt_name" widget="text"/>
+                <field name="document_type" invisible="1"/>
+                <field name="email"/>
+                <field name="state" widget="badge" decoration-success="state == '5'" decoration-info="state == '0'" decoration-warning="state == '3'" decoration-danger="state in ('2', '4', '6')" decoration-primary="state == '1'"/>
+                <button name="wg_open_digial_link_client" string="Xem tờ khai" type="object"  icon="fa-eye"/>
+                <!-- <button name="wg_open_digial_sign_backend" string="Xem file đã ký" attrs="{'invisible': [('attachment_sign_id', '=', False)]}" class="btn-primary" type="object"/> -->
+                <!-- <button name="wg_open_digial_link_backend" attrs="{'invisible': [('attachment_sign_id', '!=', False)]}"  string="Ký chứng từ" class="btn-primary" type="object"/> -->
+                <button name="wg_regen_portal_token" string="Tạo lại token" attrs="{'invisible': [('portal_token', '!=', False)]}" type="object"/>
+                <button name="wg_send_tct" string="Nộp lên TCT" confirm="Bạn chắc chắn muốn thực hiện hành đồng này?" attrs="{'invisible': ['|', ('state', '!=', '0'), ('attachment_sign_id', '=', False)]}" class="btn-primary" type="object"/>
+                <!-- <button name="wg_delete_signed_file" string="Xóa file đã ký" attrs="{'invisible': [('attachment_sign_id', '=', False)]}" class="btn-default" type="object"/> -->
+                <field name="message"/>
+                <field name="portal_token" invisible="1"/>
+                <field name="attachment_sign_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="wg_inv_registry_form">
+        <field name="name">wg.inv.registry.form</field>
+        <field name="model">wg.inv.registry</field>
+        <field name="arch" type="xml">
+            <form string="Tờ khai Đăng ký sử dụng hóa đơn điện tử">
+                <header>
+                    <button name="wg_open_digial_link_client" string="Xem tờ khai" type="object"/>
+                    <!-- <button name="wg_open_digial_sign_backend" string="Xem file đã ký" attrs="{'invisible': [('attachment_sign_id', '=', False)]}" class="btn-primary" type="object"/> -->
+                    <!-- <button name="wg_open_digial_link_backend" attrs="{'invisible': [('attachment_sign_id', '!=', False)]}"  string="Ký chứng từ" class="btn-primary" type="object"/> -->
+
+                    <!-- <button name="wg_regen_portal_token" string="Tạo lại token" attrs="{'invisible': [('portal_token', '!=', False)]}" type="object"/> -->
+
+                    
+                    <button name="wg_delete_signed_file" string="Xóa file đã ký" attrs="{'invisible': ['|', ('state', '!=', '0'), ('attachment_sign_id', '=', False)]}" class="btn-default" type="object" confirm="Bạn chắc chắn muốn ký lại Tờ khai này?" />
+
+                    <button name="set_xml_data" attrs="{'invisible': [('attachment_origin_id', '!=', False)]}" string="Get XML" type="object" icon="fa-eye"/>
+
+                    <button name="tvan_sign_with_hsm" string="Ký Hoá đơn" type="object" icon="fa-pencil" attrs="{'invisible': ['|', '|', ('using_cts_hsm', '=', False), ('attachment_sign_id', '!=', False), ('attachment_origin_id', '=', False)]}"/>
+                    
+                    <button name="wg_send_tct" attrs="{'invisible': ['|', ('attachment_sign_id', '=', False), ('MTDiep', '!=', False)]}" string="Gửi CQT" type="object" icon="fa-send"/>
+
+                    <button name="tvan_search" string="Tra cứu" type="object" icon="fa-search" attrs="{'invisible': [('MTDiep', '=', False)]}"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="0,1,3,5,6"/>
+                </header>
+                <sheet>
+                    <group class="main-group">
+                        <group class="left-group">
+                            <field name="using_cts_hsm" invisible="1"/>
+                            <field name="order_id" invisible="1"/>
+                            <field name="date"/>
+                            <field name="type"/>
+                            <field name="document_type" invisible="1"/>
+                            <field name="document_name"/>
+                            <field name="CMa"/>                        
+                            <field name="KCMa"/>                        
+                            <field name="CMTMTTien"/> 
+
+                            <field name="CDDu" attrs="{'readonly': ['|', ('CMa', '=', True), ('CMTMTTien', '=', True)]}" force_save="1"/>
+                            <field name="CBTHop" attrs="{'readonly': ['|', ('CMa', '=', True), ('CMTMTTien', '=', True)]}" force_save="1"/>
+
+                            <field name="HDGTGT"/>
+                            <field name="HDBHang"/>                        
+                                                   
+                        </group>
+                        <group class="right-group">
+                            <field name="cqt_code"/>
+                            <field name="cqt_name"/>
+                            <field name="partner_vat"/>                            
+                            <field name="partner_name" widget="text"/>                            
+                            <field name="partner_address" widget="text"/>                            
+                            <field name="partner_phone"/>                            
+                            <field name="partner_contact_name"/>                            
+                            <field name="email"/>                            
+                            <field name="message"/>
+                            <field name="sign_type" invisible="1"/>
+                            
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="page-cks-info" string="Danh sách chữ ký số">
+                            <field name="cks_ids"/>
+                        </page>
+                        <page name="page-send-tct-type" string="Hình thức gửi dữ liệu HĐĐT (ít dùng)">
+                            <div class="o_row">
+                                <field name="NNTDBKKhan"/>
+                                <label for="NNTDBKKhan"/>
+                            </div>
+
+                            <div class="o_row">
+                                <field name="NNTKTDNUBND"/>
+                                <label for="NNTKTDNUBND"/>
+                            </div>
+
+                            <div class="o_row">
+                                <field name="CDLTTDCQT"/>
+                                <label for="CDLTTDCQT"/>
+                            </div>
+
+                            <div class="o_row">
+                                <field name="CDLQTCTN"/>
+                                <label for="CDLQTCTN"/>
+                            </div>
+                        </page>
+                        <page name="page-inv-type" string="Loại hóa đơn sử dụng (ít dùng)">
+                            <group>
+                                <group>
+                                    <field name="HDBTSCong" attrs="{'readonly': [('CMTMTTien', '=', True)]}" force_save="1"/>
+                                    <field name="HDBHDTQGia" attrs="{'readonly': [('CMTMTTien', '=', True)]}" force_save="1"/>
+                                </group>
+                                <group>
+                                    <field name="HDKhac"/>
+                                    <field name="CTu" attrs="{'readonly': [('CMTMTTien', '=', True)]}" force_save="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="page-tracking" string="Thông tin khác" groups="base.group_no_one">
+                            <group>
+                                <group>
+                                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                                    <field name="portal_token" widget="text"/>
+                                    <field name="MTDiep" widget="text"/>
+                                </group>
+                                <group>
+                                    <field name="attachment_origin_id"/>
+                                    <field name="attachment_sign_id"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_inv_registry" model="ir.actions.act_window">
+        <field name="name">Đăng ký sử dụng hóa đơn điện tử</field>
+        <field name="res_model">wg.inv.registry</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

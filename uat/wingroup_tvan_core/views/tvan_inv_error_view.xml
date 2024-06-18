@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Thông báo sai sót Hóa đơn -->
+    <record model="ir.ui.view" id="wg_hddt_notice_error_inv_tree">
+        <field name="name">wg.hddt.notice.error.inv.tree</field>
+        <field name="model">wg.hddt.notice.error.inv</field>
+        <field name="arch" type="xml">
+            <tree string="Thông báo Hóa đơn sai sót">
+                <field name="NTBao"/>
+                <field name="MST"/>
+                <field name="TNNT" widget="text"/>
+                <field name="TCQT" widget="text"/>
+                <field name="Loai"/>
+                <field name="reason"/>
+                <field name="state" widget="badge" decoration-info="state == '0'" decoration-success="state == '1'" decoration-danger="state == '5'" decoration-warning="state in ('3', '4')" string="Trạng thái"/>
+                <!-- <button name="wg_open_digial_link_client" string="Xem file trong trang mới" type="object"/> -->
+                <!-- <button name="wg_open_digial_sign_backend" string="Xem file đã ký" attrs="{'invisible': [('attachment_sign_id', '=', False)]}" class="btn-primary" type="object"/> -->
+                <!-- <button name="wg_open_digial_link_backend" attrs="{'invisible': [('attachment_sign_id', '!=', False)]}"  string="Ký chứng từ" class="btn-primary" type="object"/> -->
+                <!-- <button name="wg_regen_portal_token" string="Tạo lại token" attrs="{'invisible': [('portal_token', '!=', False)]}" type="object"/> -->
+
+                <!-- <button name="wg_send_tct" string="Nộp lên TCT" confirm="Bạn chắc chắn muốn thực hiện hành đồng này?" attrs="{'invisible': ['|', ('state', '!=', '0'), ('attachment_sign_id', '=', False)]}" class="btn-primary" type="object"/> -->
+                <!-- <button name="wg_delete_signed_file" string="Xóa file đã ký" attrs="{'invisible': [('attachment_sign_id', '=', False)]}" class="btn-default" type="object"/> -->
+                <!-- <field name="portal_token" invisible="1"/> -->
+                <!-- <field name="attachment_sign_id" invisible="1"/> -->
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="wg_hddt_notice_error_inv_form">
+        <field name="name">wg.hddt.notice.error.inv.form</field>
+        <field name="model">wg.hddt.notice.error.inv</field>
+        <field name="arch" type="xml">
+            <form string="Thông báo Hóa đơn sai sót">                
+                <header>
+                    <!-- <button name="wg_sign_invoice_vat" string="Ký hóa đơn" class="btn-primary" type="object" data-hotkey="x" attrs="{'invisible': [('attachment_sign_id', '!=', False)]}"/> -->
+                    
+                    <button name="set_xml_data" attrs="{'invisible': [('attachment_origin_id', '!=', False)]}" string="Get XML" type="object" icon="fa-eye"/>
+
+                    <button name="tvan_sign_with_hsm" string="Ký Hoá đơn" type="object" icon="fa-pencil" attrs="{'invisible': ['|', '|', ('using_cts_hsm', '=', False), ('attachment_sign_id', '!=', False), ('attachment_origin_id', '=', False)]}"/>
+
+                    <button name="wg_send_tct" attrs="{'invisible': ['|', ('attachment_sign_id', '=', False), ('MTDiep', '!=', False)]}" string="Gửi CQT" type="object" icon="fa-send"/>
+
+                    <button name="tvan_search" string="Tra cứu" type="object" icon="fa-search" attrs="{'invisible': [('MTDiep', '=', False)]}"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="0,5"/>
+                </header>
+                <sheet>
+                    <group class="main-group">
+                        <group class="left-group">
+                            <field name="using_cts_hsm" invisible="1"/>
+                            <field name="MCQT" required="1" readonly="1" force_save="1"/>
+                            <field name="TCQT" required="1" readonly="1" force_save="1"/>
+                            <field name="DDanh" required="1" readonly="1" force_save="1"/>
+                            <field name="TNNT" required="1" readonly="1" force_save="1"/>
+                            <field name="MST" required="1" readonly="1" force_save="1"/>
+                            <!-- <field name="date"/>
+                            <field name="cqt_code"/>
+                            <field name="cqt_name"/>
+                            <field name="cqt_ddanh"/> -->
+                        </group>
+                        <group class="right-group">
+                            <field name="NTBao" required="1"/>
+                            <field name="Loai" required="1"/>
+                            <field name="So" attrs="{'invisible': [('Loai', '!=', '2')]}" string="Số TB của CQT" placeholder="Số thông báo của Cơ quan thuế"/>
+                            <field name="NTBCCQT" attrs="{'invisible': [('Loai', '!=', '2')]}" string="Ngày TB của CQT" placeholder="Ngày thông báo của Cơ quan thuế"/>
+                            <field name="MDVQHNSach" invisible="1"/>
+                            <field name="reason"/>
+                            <!-- <field name="type_hddt"/>
+                            <field name="type_notice"/>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="reason"/> -->
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Chi tiết hóa đơn có sai sót" name="page-inv">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="invoice_id" options="{'no_create': 1, 'no_open': 1}" class="oe_edit_only"/>
+                                    <field name="MCQTCap" widget="text"/>
+                                    <field name="inv_serial_id" options="{'no_create': 1, 'no_open': 1}"/>
+                                    <field name="KHMSHDon" invisible="1"/>
+                                    <field name="KHHDon" invisible="1"/>
+                                    <field name="SHDon"/>
+                                    <field name="Ngay"/>
+                                    <field name="LADHDDT"/>
+                                    <field name="TCTBao"/>
+                                    <field name="LDo" widget="text"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Thông tin khác" groups="base.group_no_one">
+                            <group>
+                                <group>
+                                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                                    <field name="sign_type"/>
+                                    <field name="MTDiep" widget="text"/>
+                                </group>
+                                <group>
+                                    <field name="portal_token"/>
+                                    <field name="attachment_origin_id"/>
+                                    <field name="attachment_sign_id"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hddt_notice_error_inv" model="ir.actions.act_window">
+        <field name="name">Thông báo Hóa đơn sai sót</field>
+        <field name="res_model">wg.hddt.notice.error.inv</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

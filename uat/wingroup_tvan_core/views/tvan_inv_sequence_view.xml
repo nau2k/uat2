@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Dãy số hóa đơn -->
+    <record model="ir.ui.view" id="wg_inv_sequence_tree">
+        <field name="name">wg.inv.sequence.tree</field>
+        <field name="model">wg.inv.sequence</field>
+        <field name="arch" type="xml">
+            <tree string="Thông báo phát hành">
+                <field name="create_date" string="Ngày lập" widget="date"/>
+                <field name="company_vat"/>
+                <field name="company_name" widget="text"/>
+                <field name="company_address" widget="text"/>
+                <field name="cqt_name" widget="text"/>
+                <field name="name"/>
+                <field name="serial"/>
+                <field name="quantity"/>
+                <field name="from_qty"/>
+                <field name="to_qty"/>
+                <field name="date" widget="date"/>
+                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="wg_inv_sequence_form">
+        <field name="name">wg.inv.sequence.form</field>
+        <field name="model">wg.inv.sequence</field>
+        <field name="arch" type="xml">
+            <form string="Thông báo phát hành">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="order_id"/>
+                            <field name="create_date" string="Ngày lập" widget="date"/>
+                            <field name="company_vat"/>
+                            <field name="company_name" widget="text"/>
+                            <field name="company_address" widget="text"/>
+                            <field name="cqt_name" widget="text"/>
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="serial"/>
+                            <field name="quantity" readonly="1" force_save="1"/>
+                            <field name="from_qty"/>
+                            <field name="to_qty"/>
+                            <field name="date" widget="date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_inv_sequence" model="ir.actions.act_window">
+        <field name="name">Thông báo phát hành</field>
+        <field name="res_model">wg.inv.sequence</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

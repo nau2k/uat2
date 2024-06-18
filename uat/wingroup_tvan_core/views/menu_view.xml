@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="sale_menu_root" name="BÁN HÀNG" web_icon="wingroup_tvan_core,static/description/khanhlinh.png" sequence="1"/>
+
+        <menuitem id="sale_menu" name="Đơn hàng" parent="sale_menu_root" action="action_sale_order" sequence="100"/>
+
+        <menuitem id="sale_registry_menu" name="Tờ khai sử dụng HĐĐT" parent="sale_menu_root" action="action_inv_registry" sequence="200"/>
+
+
+        <menuitem id="sale_config_menu" name="Cấu hình" parent="sale_menu_root" sequence="1000"/>
+
+            <menuitem id="inv_template_menu" name="Mẫu hóa đơn" parent="sale_config_menu" action="action_invoice_template" sequence="10"/>
+
+            <menuitem id="cqt_menu" name="Danh sách CQT" parent="sale_config_menu" action="action_cqt" sequence="20"/>
+
+            <menuitem id="sale_product_menu" name="Danh sách gói dịch vụ" parent="sale_config_menu" action="action_product" sequence="30"/>
+
+            <menuitem id="xml_template_menu" name="Mẫu XML thông điệp" parent="sale_config_menu" action="action_xml_template" sequence="40"/>
+
+            
+
+
+    <menuitem id="tvan_menu_root" name="KHÁNH LINH" web_icon="wingroup_tvan_core,static/description/khanhlinh.png" sequence="2"/>
+
+        <!-- <menuitem id="invoice_menu" name="Danh sách hóa đơn" parent="tvan_menu_root" action="action_account_move_tvan" sequence="100"/> -->
+
+        <menuitem id="hddt_gtgt_menu" name="Hóa đơn điện tử" parent="tvan_menu_root" action="action_hddt_gtgt" sequence="110"/>
+        <menuitem id="hddt_tem_menu" name="Tem/Vé" parent="tvan_menu_root" action="action_hddt_tem" sequence="120"/>
+        <menuitem id="hddt_pxk_menu" name="PXK nội bộ" parent="tvan_menu_root" action="action_hddt_pxk" sequence="130"/>
+        
+
+        <menuitem id="handle_menu" name="Xử lý hóa đơn" parent="tvan_menu_root" sequence="150"/>
+            <!-- <menuitem id="replace_invoice_menu" name="Thay thế" parent="handle_menu" action="action_account_move_tvan" sequence="10"/>
+            <menuitem id="adjust_invoice_menu" name="Điều chỉnh" parent="handle_menu" action="action_account_move_tvan" sequence="20"/>
+            <menuitem id="cancel_invoice_menu" name="Huỷ bỏ" parent="handle_menu" action="action_account_move_tvan" sequence="30"/> -->
+            <menuitem id="report_invoice_menu" name="Biên bản hoá đơn" parent="handle_menu" action="action_hddt_adjust_document_inv" sequence="40"/>
+            <menuitem id="error_invoice_menu" name="Thông báo sai sót" parent="handle_menu" action="action_hddt_notice_error_inv" sequence="50"/>
+
+
+        <menuitem id="categ_menu" name="Danh mục" parent="tvan_menu_root" sequence="200"/>
+            <menuitem id="customer_menu" name="Khách hàng" parent="categ_menu" action="action_res_partner" sequence="10"/>
+
+            <menuitem id="import_customer_menu" name="Upload khách hàng" parent="categ_menu" action="action_res_partner" sequence="20"/>
+
+            <menuitem id="product_menu" name="Sản phẩm" parent="categ_menu" action="account.product_product_action_sellable" sequence="30"/>
+
+            <menuitem id="import_product_menu" name="Upload sản phẩm" parent="categ_menu" action="account.product_product_action_sellable" sequence="40"/>
+
+
+        <menuitem id="report_menu_root" name="Báo cáo" parent="tvan_menu_root" sequence="300"/>
+            <menuitem id="history_menu_root" name="Lịch sử giao dịch" parent="report_menu_root" sequence="300"/>
+                <menuitem id="email_history_menu" name="Lịch sử gửi mail" parent="history_menu_root" action="mail.action_view_mail_mail" sequence="10"/>
+
+                <menuitem id="tvan_history_menu" name="Lịch sử truyền nhận" parent="history_menu_root" action="action_tvan_history" sequence="20"/>
+
+            <menuitem id="report_hddk_menu" name="Hoá đơn" parent="report_menu_root" sequence="300"/>
+                <menuitem id="summary_invoice_menu" name="Bảng kê hoá đơn" parent="report_hddk_menu" action="action_export_summary_inv" sequence="10"/>
+
+                <menuitem id="export_misa_menu" name="Xuất dữ liệu HĐ MISA" parent="report_hddk_menu" action="action_export_misa_inv" sequence="20"/>
+            
+
+        <menuitem id="config_menu_root" name="Cấu hình" parent="tvan_menu_root" sequence="400"/>
+
+            <menuitem id="registry_menu_root" name="Thông tin đăng ký Thuế" parent="config_menu_root" sequence="10"/>
+
+                <menuitem id="dk_hddt_menu" name="Tờ khai sử dụng HĐĐT" parent="registry_menu_root" action="action_inv_registry" sequence="10"/>
+
+
+                <menuitem id="inv_sample_data_menu" name="Mẫu dữ liệu" parent="registry_menu_root" action="action_inv_sample_data" sequence="18"/>
+
+                <menuitem id="mau_hddt_menu" name="Mẫu hoá đơn" parent="registry_menu_root" action="action_inv_serial" sequence="20"/>
+                
+                <menuitem id="publish_hddt_menu" name="Thông báo phát hành" parent="registry_menu_root" action="action_inv_sequence" sequence="30"/>
+
+                <menuitem id="cks_info_menu" name="Chữ ký số" parent="registry_menu_root" action="action_cks_info" sequence="40"/>
+
+                <menuitem id="contract_info_menu" name="Hợp đồng sử dụng HĐĐT" parent="registry_menu_root" action="action_hddt_contract" sequence="50"/>
+
+
+            <menuitem id="system_menu_root" name="Hệ thống" parent="config_menu_root" sequence="20"/>
+                <menuitem id="company_info_menu" name="Thông tin công ty" parent="system_menu_root" action="base.action_res_company_form" sequence="10"/>
+
+                <menuitem id="users_menu" name="Tài khoản đăng nhập" parent="system_menu_root" action="base.action_res_users" sequence="20"/>
+
+                <menuitem id="display_sign_position_menu" name="Cấu hình hiển thị ngày ký" parent="system_menu_root" action="action_hddt_display" sequence="30"/>
+
+                <menuitem id="email_account_menu" name="Tài khoản gửi mail" parent="system_menu_root" action="base.action_ir_mail_server_list" sequence="40"/>
+
+                <menuitem id="email_template_menu" name="Mẫu mail" parent="system_menu_root" action="mail.action_email_template_tree_all" sequence="50"/>
+
+
+</odoo>

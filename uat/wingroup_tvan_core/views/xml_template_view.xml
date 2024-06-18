@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="xml_template_tree">
+        <field name="name">wg.xml.template.tree</field>
+        <field name="model">wg.xml.template</field>
+        <field name="arch" type="xml">
+            <tree string="Mẫu thông điệp">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="xml_template_form">
+        <field name="name">wg.xml.template.form</field>
+        <field name="model">wg.xml.template</field>
+        <field name="arch" type="xml">
+            <form string="Mẫu thông điệp">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="parent_id" options="{'no_open': 1, 'no_create': 1}"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="page-detail" string="Mẫu XML">
+                            <field name="xml_data" widget="ace"/>
+                        </page>
+                    </notebook>
+                </sheet>                
+            </form>
+        </field>
+    </record>
+
+    <record id="action_xml_template" model="ir.actions.act_window">
+        <field name="name">Mẫu thông điệp</field>
+        <field name="res_model">wg.xml.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

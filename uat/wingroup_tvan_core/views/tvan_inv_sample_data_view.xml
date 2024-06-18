@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="inv_sample_data_tree">
+        <field name="name">wg.inv.sample.data.tree</field>
+        <field name="model">wg.inv.sample.data</field>
+        <field name="arch" type="xml">
+            <tree string="Mẫu dữ liệu hóa đơn">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="inv_sample_data_form">
+        <field name="name">wg.inv.sample.data.form</field>
+        <field name="model">wg.inv.sample.data</field>
+        <field name="arch" type="xml">
+            <form string="Mẫu dữ liệu hóa đơn">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="note"/>
+                        <field name="data"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_inv_sample_data" model="ir.actions.act_window">
+        <field name="name">Mẫu dữ liệu hóa đơn</field>
+        <field name="res_model">wg.inv.sample.data</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="user_config_tree">
+        <field name="name">res.users.tree</field>
+        <field name="model">res.users</field>
+        <field name="priority">1106</field>
+        <field name="arch" type="xml">
+            <tree string="Tài khoản người dùng">
+                <field name="name"/>
+                <field name="login"/>
+                <field name="lang"/>
+                <field name="api_rest_key"/>
+                <button name="generate_api_rest_key" string="Tạo token" type="object" icon="fa-eye"/>
+                <field name="tvan_config_id" options="{'no_create': 1, 'no_open': 1}"/>
+                <field name="login_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_users_simple_form">
+        <field name="name">res.users.tree</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_simple_form"/>
+        <field name="arch" type="xml">
+            <group name="phone_numbers" position="inside">
+                <field name="api_rest_key"/>
+                <field name="tvan_config_id" options="{'no_create': 1, 'no_open': 1}"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="action_users" model="ir.actions.act_window">
+        <field name="name">Tài khoản người dùng</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'create': 0}</field>
+        <field name="view_id" ref="user_config_tree"/>
+    </record>
+
+
+</odoo>

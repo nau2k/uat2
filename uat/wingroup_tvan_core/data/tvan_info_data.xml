@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="ir.config_parameter" id="tvan_main_url_parameter">
+            <field name="key">tvan.main_url</field>
+            <field name="value">https://uat-pmkt.wgroup.vn</field>
+        </record>
+
+        <record model="ir.config_parameter" id="tvan_client_key_parameter">
+            <field name="key">tvan.client_key</field>
+            <field name="value">4qp4eEorxZLmUI2Hv42j6cC0XbjhqLMyFZU91NkcSJRLG_2LCwqZoA</field>
+        </record>
+
+        <record model="ir.config_parameter" id="tvan_route_get_01_parameter">
+            <field name="key">tvan.route_01</field>
+            <field name="value">/api/tvan/get-xml-tk</field>
+        </record>
+
+        <record model="ir.config_parameter" id="tvan_route_get_inv_parameter">
+            <field name="key">tvan.route_inv</field>
+            <field name="value">/api/tvan/get-xml-inv</field>
+        </record>
+
+        <record model="ir.config_parameter" id="tvan_route_get_tbss_parameter">
+            <field name="key">tvan.route_tbss</field>
+            <field name="value">/api/tvan/get-xml-tbss</field>
+        </record>
+
+        <record model="ir.config_parameter" id="tvan_route_request_MTDiep_parameter">
+            <field name="key">tvan.RequestMTDiep</field>
+            <field name="value">/api/tvan/get-MTDiep</field>
+        </record>
+
+        <record model="ir.config_parameter" id="tvan_route_send_message_parameter">
+            <field name="key">tvan.SendMessage</field>
+            <field name="value">/api/tvan/send-xml</field>
+        </record>
+
+        <record model="ir.config_parameter" id="tvan_route_convert_json_to_xml">
+            <field name="key">tvan.ConvertJsonToXml</field>
+            <field name="value">/api/tvan/convert-json-to-xml</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <!-- Cấu hình hiển thị ngày ký -->
+    <record model="ir.ui.view" id="wg_hddt_display_tree">
+        <field name="name">wg.hddt.display.tree</field>
+        <field name="model">wg.hddt.display</field>
+        <field name="arch" type="xml">
+            <tree string="Cấu hình hiển thị ngày ký">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="image" widget="image" class="oe_avatar" width="350" height="100"/>
+                <field name="image_no_date" widget="image" class="oe_avatar" width="350" height="100" optional="hide"/>
+                <field name="default" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hddt_display" model="ir.actions.act_window">
+        <field name="name">Cấu hình hiển thị ngày ký</field>
+        <field name="res_model">wg.hddt.display</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Biên bản điều chỉnh hóa đơn -->
+    <record model="ir.ui.view" id="wg_hddt_adjust_document_inv_tree">
+        <field name="name">wg.hddt.adjust.document.inv.tree</field>
+        <field name="model">wg.hddt.adjust.document.inv</field>
+        <field name="arch" type="xml">
+            <tree string="Biên bản điều chỉnh hóa đơn">
+                <field name="inv_date"/>
+                <field name="serial"/>
+                <field name="inv_number"/>
+                <field name="company_vat"/>
+                <field name="company_name"/>
+                <field name="reason"/>
+                <field name="before_content"/>
+                <field name="after_content"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hddt_adjust_document_inv" model="ir.actions.act_window">
+        <field name="name">Biên bản điều chỉnh hóa đơn</field>
+        <field name="res_model">wg.hddt.adjust.document.inv</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Lịch sử truyền nhận -->
+    <record model="ir.ui.view" id="wg_tvan_history_tree">
+        <field name="name">wg.tvan.history.tree</field>
+        <field name="model">wg.tvan.history</field>
+        <field name="arch" type="xml">
+            <tree string="Lịch sử truyền nhận">
+                <field name="user_id"/>
+                <field name="date"/>
+                <field name="type"/>
+                <field name="ip"/>
+                <field name="inv_number"/>
+                <field name="state"/>
+                <field name="message"/>
+                <field name="handle_msg"/>
+                <button name="send_msg" string="Nội dung gửi" type="object" icon="fa-send"/>
+                <button name="result_msg" string="Kết quả trả về" type="object" icon="fa-envelope"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_tvan_history" model="ir.actions.act_window">
+        <field name="name">Lịch sử truyền nhận</field>
+        <field name="res_model">wg.tvan.history</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

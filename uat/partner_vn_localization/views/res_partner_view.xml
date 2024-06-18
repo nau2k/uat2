@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="district_res_partner_form">
+        <field name="name">Res Partner Form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="city" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field> 
+            <field name="zip" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="street" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="country_id" position="replace">
+            </field>
+            <field name="state_id" position="before">
+                <field name="country_id" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+            </field>
+            <field name="street2" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="state_id" position="after">
+                <div class="o_row" attrs="{'invisible': [('type', '=', 'contact'),('parent_id', '!=', False)]}">
+                    <field name="district_id" placeholder="District" domain="[('state_id','=',state_id)]" options="{'no_create_edit': True}"  attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <field name="ward_id" placeholder="Ward" domain="[('district_id','=',district_id)]" options="{'no_create_edit': True}"  attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                </div>
+                <div class="o_row" attrs="{'invisible': [('type', '=', 'contact'),('parent_id', '!=', False)]}">
+                    <span class="oe_edit_only">Số nhà</span>
+                    <field name="street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                    <span class="oe_edit_only">Đường</span>
+                    <field name="street2" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                </div>
+            </field>
+            <xpath expr="//div[hasclass('oe_title')]/div[hasclass('o_row')]" position="after">
+                <field name="short_name" placeholder="Tên viết tắt, ví dụ LATIDO JSC..." attrs="{'invisible': [('company_type','=','person')]}"/>
+            </xpath>
+            <field name="state_id" position="replace">
+                <field name="state_id" placeholder="State" options="{&quot;no_open&quot;: True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'zip': zip}"/>
+            </field>
+            <span name="address_name" position="before">
+                <field name="vat" position="move"/>
+                <field name="address2" placeholder="Address"/>
+            </span>
+            <xpath expr="//span[@name='address_name']/b" position="attributes">
+                <attribute name="invisible">1</attribute> 
+            </xpath>
+            <xpath expr="//field[@name='type']" position="attributes">
+                <attribute name="class">oe_edit_only</attribute>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="string">VAT</attribute>
+            </xpath>
+            <!-- <div class="o_address_format -->
+            <xpath expr="//label[@for='street']" position="attributes"> 
+                <attribute name="class">oe_edit_only</attribute> 
+            </xpath>
+            <xpath expr="//div[@class='o_address_format']" position="attributes">
+                <attribute name="class">o_address_format oe_edit_only</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='child_ids']/form//label[@for='street']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']/form//div[@name='div_address']/.." position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']/form//field[@name='name']" position="after">
+                <field name="country_id" options="{'no_create': 1, 'no_open': 1}" placeholder="Việt Nam" class="oe_edit_only"/>
+                <field name="state_id" options="{'no_create': 1, 'no_open': 1}" placeholder="Thành phố Hồ Chí Minh" class="oe_edit_only"/>
+                <field name="district_id" options="{'no_create': 1, 'no_open': 1}" placeholder="Quận Tân Bình" class="oe_edit_only" domain="[('state_id','=',state_id)]"/>
+                <field name="ward_id" options="{'no_create': 1, 'no_open': 1}" placeholder="Phường 4" class="oe_edit_only" domain="[('district_id','=',district_id)]"/>
+                <field name="street" string="Số nhà" class="oe_edit_only"/>
+                <field name="street2" string="Đường" class="oe_edit_only"/>
+                <field name="address2"/>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']" position="attributes">
+                <attribute name="context">{'default_parent_id': active_id, 'default_lang': lang, 'default_user_id': user_id, 'default_type': 'contact'}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

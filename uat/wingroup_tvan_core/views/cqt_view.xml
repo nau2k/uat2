@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="cqt_tree">
+        <field name="name">wg.cqt.tree</field>
+        <field name="model">wg.cqt</field>
+        <field name="arch" type="xml">
+            <tree string="Danh sách cơ quan thuế">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="city_id" options="{'no_create': 1, 'no_open': 1}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_cqt" model="ir.actions.act_window">
+        <field name="name">Danh sách cơ quan thuế</field>
+        <field name="res_model">wg.cqt</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

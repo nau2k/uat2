@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="export_summary_inv_view">
+        <field name="name">wg.export.summary.inv.wiz.form</field>
+        <field name="model">wg.export.summary.inv.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="confirm" string="Xem báo cáo" type="object" class="btn-primary"/>
+                    <button string="Hủy" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_export_summary_inv" model="ir.actions.act_window">
+        <field name="name">Bảng kê hóa đơn, chứng từ hàng hóa, dịch vụ bán ra</field>
+        <field name="res_model">wg.export.summary.inv.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    
+</odoo>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="res_partner_tree_tvan">
+        <field name="name">res.partner TVAN</field>
+        <field name="model">res.partner</field>
+        <field name="priority">0</field>
+        <field name="arch" type="xml">
+            <tree string="Danh sách khách hàng">
+                <field name="ref" widget="text" string="Mã khách hàng"/>
+                <field name="name" widget="text" string="Tên khách hàng"/>
+                <field name="buyer_name" widget="text"/>
+                <field name="vat" widget="text" string="Mã số thuế"/>
+                <field name="address2" widget="text"/>
+                <field name="phone" widget="text"/>
+                <field name="email" widget="text"/>
+                <field name="email_cc" string="Danh sách cc" widget="text"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_partner_form_tvan">
+        <field name="name">res.partner TVAN</field>
+        <field name="model">res.partner</field>
+        <field name="priority">0</field>
+        <field name="arch" type="xml">
+            <form string="Thông tin khách hàng">
+                <sheet>
+                    <group class="main_group">
+                        <group class="group_left">
+                            <field name="ref" required="1" string="Mã khách hàng"/>
+                            <label for="vat" string="Mã số thuế"/>
+                            <div class="o_row">
+                                <field name="vat" required="1"/>
+                                <label for="field_boolean_find_partner" class="btn btn-primary oe_edit_only" style="color: white"/>
+                            </div>
+                            <field name="name" required="1" string="Tên khách hàng" widget="text"/>
+                            <field name="address2" required="1" string="Địa chỉ" widget="text"/>
+                            <field name="email" string="Mail khách hàng"/>
+                        </group>
+                        <group class="right">
+                            <field name="buyer_name"/>
+                            <field name="phone" string="Số điện thoại"/>
+                            <field name="acc_bank_number"/>
+                            <field name="acc_bank_name"/>
+                            <field name="email_cc" string="Danh sách cc" widget="text" placeholder="Các email cách nhau bởi dấu phẩy ','"/>                            
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="">
+
+                        </page>
+                        <page string="">
+                            <field name="field_boolean_find_partner"/>
+                            <field name="company_id" options="{'no_create': 1, 'no_open': 1}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="action_res_partner" model="ir.actions.act_window">
+        <field name="name">Danh sách khách hàng</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{
+            'search_default_customer': 1,
+            'res_partner_search_mode': 'customer', 
+            'default_is_company': True, 
+            'default_customer_rank': 1
+        }</field>
+        <field name="view_id" ref="res_partner_tree_tvan"/>
+    </record>
+
+
+    <!-- <record model="ir.actions.server" id="ir_action_view_company_info">
+        <field name="name">Thông tin công ty</field>
+        <field name="model_id" ref="model_res_company"/>
+        <field name="binding_model_id" ref="model_res_company"/>
+        <field name="state">code</field>
+        <field name="code">
+
+        </field>
+    </record> -->
+
+</odoo>

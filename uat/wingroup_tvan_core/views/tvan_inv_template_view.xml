@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="init_account_data_template_tree">
+        <field name="name">wg.invoice.template.tree</field>
+        <field name="model">wg.invoice.template</field>
+        <field name="arch" type="xml">
+            <tree string="Mẫu Hóa đơn điện tử">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="note"/>
+                <field name="preview_data" widget="image_popup" class="oe_avatar" width="200" height="600" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="init_account_data_template_form">
+        <field name="name">wg.invoice.template.form</field>
+        <field name="model">wg.invoice.template</field>
+        <field name="arch" type="xml">
+            <form string="Mẫu Hóa đơn điện tử">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="note"/>
+                        </group>
+                        <group>
+                            <field name="data_file" filename="filename"/>
+                            <field name="filename"/>
+                            <field name="preview_data"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_invoice_template" model="ir.actions.act_window">
+        <field name="name">Mẫu hóa đơn điện tử</field>
+        <field name="res_model">wg.invoice.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

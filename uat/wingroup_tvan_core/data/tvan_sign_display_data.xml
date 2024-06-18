@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="wg.hddt.display" id="tvan_sign_diplay0">
+            <field name="sequence">1</field>
+            <field name="name">Ký ngày 22 tháng 06 năm 2023</field>
+            <field name="code">Ký ngày %d tháng %m năm %Y</field>
+        </record>
+
+        <record model="wg.hddt.display" id="tvan_sign_diplay1">
+            <field name="sequence">2</field>
+            <field name="name">Ký ngày: 22/06/2023</field>
+            <field name="code">Ký ngày: %d/%m/%Y</field>
+        </record>
+        
+        <record model="wg.hddt.display" id="tvan_sign_diplay2">
+            <field name="sequence">3</field>
+            <field name="name">Ký ngày: 22-06-2023</field>
+            <field name="code">Ký ngày: %d-%m-%Y</field>
+        </record>
+
+        <record model="wg.hddt.display" id="tvan_sign_diplay3">
+            <field name="sequence">4</field>
+            <field name="name">Ngày: 22/06/2023</field>
+            <field name="code">Ngày: %d/%m/%Y</field>
+        </record>
+
+
+        <record model="wg.hddt.display" id="tvan_sign_diplay4">
+            <field name="sequence">5</field>
+            <field name="name">Ngày: 22-06-2023</field>
+            <field name="code">Ngày: %d-%m-%Y</field>
+        </record>
+
+
+        <record model="wg.hddt.display" id="tvan_sign_diplay6">
+            <field name="sequence">6</field>
+            <field name="name">Ngày HĐ: 22/06/2023</field>
+            <field name="code">Ngày HĐ: %d/%m/%Y</field>
+        </record>
+
+
+        <record model="wg.hddt.display" id="tvan_sign_diplay7">
+            <field name="sequence">7</field>
+            <field name="name">Ngày HĐ: 22-06-2023</field>
+            <field name="code">Ngày HĐ: %d-%m-%Y</field>
+        </record>
+
+    </data>
+</odoo>
