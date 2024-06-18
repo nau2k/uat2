@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wg_report_template_odt_user,wg_report_template_odt_user,model_wg_report_template_odt,base.group_user,1,1,1,1
+access_wg_report_pdf_tmp_user,wg_report_pdf_tmp_user,model_wg_report_pdf_tmp,base.group_user,1,1,1,1
+access_wg_report_pdf_store_user,wg_report_pdf_store_user,model_wg_report_pdf_store,base.group_user,1,1,1,0

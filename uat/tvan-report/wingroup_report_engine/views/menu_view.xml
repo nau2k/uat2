@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="menu_report_engine_root" name="Bản in" web_icon="wingroup_report_engine,static/description/report_icon.png" sequence="2"/>
+
+    <menuitem id="menu_report_pdf_store" name="File lưu trữ" parent="menu_report_engine_root" action="action_report_pdf_store" sequence="10"/>
+
+    <menuitem id="menu_report_pdf_tmp" name="File tạm" parent="menu_report_engine_root" action="action_report_pdf_tmp" sequence="20"/>
+
+    <menuitem id="menu_report_template_odt" name="Mẫu hóa đơn" parent="menu_report_engine_root" action="action_report_template_odt" sequence="1106"/>
+
+</odoo>

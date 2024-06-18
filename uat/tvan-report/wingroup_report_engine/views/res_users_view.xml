@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_users_form_inherit">
+        <field name="name">res.users.form inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="auth_totp.view_totp_form"/>
+        <field name="arch" type="xml">
+            <page name="security" position="inside">
+                <group>
+                    <field name="api_rest_key"/>
+                    <button name="generate_api_rest_key" string="Tạo API key" type="object"/>
+                </group>
+            </page>
+        </field>
+    </record>
+
+</odoo>

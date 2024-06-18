@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="report_tmp_pdf_tree">
+        <field name="name">wg.report.pdf.tmp.tree</field>
+        <field name="model">wg.report.pdf.tmp</field>
+        <field name="arch" type="xml">
+            <tree string="Bản in PDF tạm">
+                <field name="create_date"/>
+                <field name="code"/>
+                <field name="company_vat"/>
+                <field name="company_name" widget="text"/>
+                <field name="name"/>
+                <!-- <button name="view_data" string="Xem dữ liệu" type="object" icon="fa-eye"/> -->
+                <button name="open_link_by_new_tab" string="Xem Hóa đơn" type="object" icon="fa-eye"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="report_tmp_pdf_form">
+        <field name="name">wg.report.pdf.tmp.form</field>
+        <field name="model">wg.report.pdf.tmp</field>
+        <field name="arch" type="xml">
+            <form string="Bản in PDF tạm">
+                <header>
+                    <button name="view_data" string="Xem dữ liệu" type="object" icon="fa-eye"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="template_id" options="{'no_create': 1}"/>
+                            <field name="company_vat"/>
+                            <field name="company_name" widget="text"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="attachment_id" options="{'no_create': 1}"/>
+                            <field name="code"/>
+                            <field name="link"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Preview">
+                            <field name="pdf_preview" widget="pdf_viewer" readonly="1"/>
+                        </page>
+                        <page string="Data">
+                            <field name="data"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_report_pdf_tmp" model="ir.actions.act_window">
+        <field name="name">File tạm</field>
+        <field name="res_model">wg.report.pdf.tmp</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="report_store_pdf_tree">
+        <field name="name">wg.report.pdf.store.tree</field>
+        <field name="model">wg.report.pdf.store</field>
+        <field name="arch" type="xml">
+            <tree string="Lưu trữ PDF">
+                <field name="create_date"/>
+                <field name="code"/>
+                <field name="company_vat"/>
+                <field name="company_name" widget="text"/>
+                <field name="name"/>
+                <!-- <button name="view_data" string="Xem dữ liệu" type="object" icon="fa-eye"/> -->
+                <button name="open_link_by_new_tab" string="Xem Hóa đơn" type="object" icon="fa-eye"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="report_store_pdf_form">
+        <field name="name">wg.report.pdf.store.form</field>
+        <field name="model">wg.report.pdf.store</field>
+        <field name="arch" type="xml">
+            <form string="Lưu trữ PDF">
+                <header>
+                    <button name="view_data" string="Xem dữ liệu" type="object" icon="fa-eye"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="template_id" options="{'no_create': 1}"/>
+                            <field name="company_vat"/>
+                            <field name="company_name" widget="text"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="attachment_id" options="{'no_create': 1}"/>
+                            <field name="code"/>
+                            <field name="link"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Preview">
+                            <field name="pdf_preview" widget="pdf_viewer" readonly="1"/>
+                        </page>
+                        <page string="Data">
+                            <field name="data"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_report_pdf_store" model="ir.actions.act_window">
+        <field name="name">File lưu trữ</field>
+        <field name="res_model">wg.report.pdf.store</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>
