@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="tvan_root_menu" name="TVAN" action="" web_icon="wingroup_tvan_server,static/description/khanhlinh.png" sequence="4"/>
+
+    <menuitem id="tvan_log_menu" name="Lịch sử truyền nhận" action="action_tvan_log" parent="tvan_root_menu" sequence="10"/>
+
+    <menuitem id="tvan_users_menu" name="Tài khoản kết nối" action="action_users" parent="tvan_root_menu" sequence="100"/>
+
+    <menuitem id="tvan_template_menu" name="Định dạng truyền nhận" action="action_tvan_template" parent="tvan_root_menu" sequence="200"/>
+
+    <menuitem id="tvan_api_menu" name="API" action="smile_api_rest.action_api_rest_version" parent="tvan_root_menu" sequence="300"/>    
+
+    <menuitem id="tvan_config_menu" name="Cấu hình Tvan" action="action_tvan_config" parent="tvan_root_menu" sequence="1000"/>
+
+</odoo>

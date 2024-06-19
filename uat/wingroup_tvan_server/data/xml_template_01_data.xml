@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+
+        <record id="template_01_data" model="wg.tvan.template">
+            <field name="sequence">5</field>
+            <field name="code">1450</field>
+            <field name="name">Tờ khai sử dụng HĐĐT</field>
+            <field name="xml_data"><![CDATA[<DLieu>
+    <TKhai>
+        <DLTKhai Id="DLTKhai">
+            <TTChung>
+                <PBan>2.0.0</PBan>
+                <MSo>{MSo}</MSo>
+                <Ten>Đăng ký/Thay đổi thông tin sử dụng hóa đơn điện tử</Ten>
+                <HThuc>{HThuc}</HThuc>
+                <TNNT>{TNNT}</TNNT>
+                <MST>{MST}</MST>
+                <CQTQLy>{CQTQLy}</CQTQLy>
+                <MCQTQLy>{MCQTQLy}</MCQTQLy>
+                <NLHe>{NLHe}</NLHe>
+                <DCLHe>{DCLHe}</DCLHe>
+                <DCTDTu>{DCTDTu}</DCTDTu>
+                <DTLHe>{DTLHe}</DTLHe>
+                <DDanh>{DDanh}</DDanh>
+                <NLap>{NLap}</NLap>
+            </TTChung>
+            <NDTKhai>
+                <HTHDon>
+                    <CMa>{CMa}</CMa>
+                    <KCMa>{KCMa}</KCMa>
+                    <CMTMTTien>{CMTMTTien}</CMTMTTien>
+                </HTHDon>
+                <HTGDLHDDT>
+                    <NNTDBKKhan>{NNTDBKKhan}</NNTDBKKhan>
+                    <NNTKTDNUBND>{NNTKTDNUBND}</NNTKTDNUBND>
+                    <CDLTTDCQT>{CDLTTDCQT}</CDLTTDCQT>
+                    <CDLQTCTN>{CDLQTCTN}</CDLQTCTN>
+                </HTGDLHDDT>
+                <PThuc>
+                    <CDDu>{CDDu}</CDDu>
+                    <CBTHop>{CBTHop}</CBTHop>
+                </PThuc>
+                <LHDSDung>
+                    <HDGTGT>{HDGTGT}</HDGTGT>
+                    <HDBHang>{HDBHang}</HDBHang>
+                    <HDBTSCong>{HDBTSCong}</HDBTSCong>
+                    <HDBHDTQGia>{HDBHDTQGia}</HDBHDTQGia>
+                    <HDKhac>{HDKhac}</HDKhac>
+                    <CTu>{CTu}</CTu>
+                </LHDSDung>
+                {DSCTSSDung}
+            </NDTKhai>
+        </DLTKhai>
+        <DSCKS>
+            <NNT></NNT>
+            <CCKSKhac/>
+        </DSCKS>
+    </TKhai>
+</DLieu>]]></field>
+        </record>
+
+        <record id="template_cks_data" model="wg.tvan.template">
+            <field name="sequence">10</field>
+            <field name="code">1450</field>
+            <field name="name">Danh sách chữ ký số</field>
+            <field name="xml_data"><![CDATA[<CTS>
+    <STT>{STT}</STT>
+    <TTChuc>{TTChuc}</TTChuc>
+    <Seri>{Seri}</Seri>
+    <TNgay>{TNgay}</TNgay>
+    <DNgay>{DNgay}</DNgay>
+    <HThuc>{HThuc}</HThuc>
+</CTS>]]></field>
+        </record>
+            
+
+    </data>
+</odoo>

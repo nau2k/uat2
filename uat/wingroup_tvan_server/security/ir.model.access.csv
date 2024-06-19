@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wg_tvan_config_user,wg_tvan_config_user,model_wg_tvan_config,,1,0,0,0
+access_wg_tvan_config_admin,wg_tvan_config_admin,model_wg_tvan_config,base.group_system,1,1,1,1
+access_wg_tvan_log_user,wg_tvan_log_user,model_wg_tvan_log,,1,0,1,0
+access_wg_tvan_log_admin,wg_tvan_log_admin,model_wg_tvan_log,base.group_system,1,1,1,1
+access_wg_tvan_template_user,wg_tvan_template_user,model_wg_tvan_template,,1,0,1,0
+access_wg_tvan_template_admin,wg_tvan_template_admin,model_wg_tvan_template,base.group_system,1,1,1,1

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Lịch sử truyền nhận -->
+    <record model="ir.ui.view" id="wg_tvan_log_tree">
+        <field name="name">wg.tvan.log.tree</field>
+        <field name="model">wg.tvan.log</field>
+        <field name="arch" type="xml">
+            <tree string="Lịch sử truyền nhận">
+                <field name="user_id"/>
+                <field name="date"/>
+                <field name="type"/>
+                <field name="ip"/>
+                <field name="vat"/>
+                <field name="company_name" widget="text"/>
+                <field name="inv_number"/>
+                <field name="MTDiep" widget="text"/>
+                <field name="TDiep"/>
+                <field name="state"/>
+                <field name="message"/>
+                <field name="handle_msg"/>
+                <button name="send_msg" string="Nội dung gửi" type="object" icon="fa-send"/>
+                <button name="result_msg" string="Kết quả trả về" type="object" icon="fa-envelope"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="wg_tvan_log_form">
+        <field name="name">wg.tvan.log.form</field>
+        <field name="model">wg.tvan.log</field>
+        <field name="arch" type="xml">
+            <form string="Lịch sử truyền nhận">
+                <header>
+                    <button name="send_msg" string="Nội dung gửi" type="object" icon="fa-send"/>
+                    <button name="result_msg" string="Kết quả trả về" type="object" icon="fa-envelope"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="date"/>
+                            <field name="type"/>
+                            <field name="ip"/>
+                            <field name="MTDiep"/>
+                        </group>
+                        <group>
+                            <field name="datas"/>
+                            <field name="TDiep"/>
+                            <field name="inv_number"/>
+                            <field name="vat"/>
+                            <field name="company_name" widget="text"/>
+                            <field name="state"/>
+                            <field name="message"/>
+                            <field name="handle_msg"/>
+                        </group>
+                    </group>
+                </sheet>
+                
+                
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tvan_log" model="ir.actions.act_window">
+        <field name="name">Lịch sử truyền nhận</field>
+        <field name="res_model">wg.tvan.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

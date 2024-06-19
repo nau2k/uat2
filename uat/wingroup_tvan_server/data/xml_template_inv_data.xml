@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="template_inv_data" model="wg.tvan.template">
+            <field name="sequence">15</field>
+            <field name="code">1450</field>
+            <field name="name">Hóa đơn giá trị gia tăng</field>
+            <field name="xml_data"><![CDATA[<HDon>
+    <DLHDon Id="DLHDon">
+        <TTChung>
+            <PBan>2.0.0</PBan>
+            <THDon>Hóa đơn giá trị gia tăng</THDon>
+            <KHMSHDon>{KHMSHDon}</KHMSHDon>
+            <KHHDon>{KHHDon}</KHHDon>
+            <SHDon>{SHDon}</SHDon>
+            <MHSo/>
+            <NLap>{NLap}</NLap>
+            <SBKe/>
+            <NBKe/>
+            <DVTTe>{DVTTe}</DVTTe>
+            <TGia>{TGia}</TGia>
+            <HTTToan>{HTTToan}</HTTToan>
+            <MSTTCGP>0309612872</MSTTCGP>
+            <MSTDVNUNLHDon/>
+            <TDVNUNLHDon/>
+            <DCDVNUNLHDon/>
+            {LHDCLQuan}
+        </TTChung>
+        <NDHDon>
+            <NBan>
+                <Ten>{TenNBan}</Ten>
+                <MST>{MSTNBan}</MST>
+                <DChi>{DChiNban}</DChi>
+                <SDThoai>{SDThoaiNBan}</SDThoai>
+                <DCTDTu/>
+                <STKNHang/>
+                <TNHang/>
+                <Fax/>
+                <Website/>
+                <TTKhac/>
+            </NBan>
+            <NMua>
+                <Ten>{TenNMua}</Ten>
+                <MST>{MSTNMua}</MST>
+                <DChi>{DChiNMua}</DChi>
+                <MKHang>{MKHang}</MKHang>
+                <SDThoai/>
+                <HVTNMHang/>
+                <STKNHang/>
+                <TNHang/>
+                <TTKhac/>
+            </NMua>
+            <DSHHDVu>
+                {body_data}                        
+            </DSHHDVu>
+            <TToan>
+                <THTTLTSuat>
+                    {footer_data}
+                </THTTLTSuat>
+                <TgTCThue>{TgTCThue}</TgTCThue>
+                <TgTThue>{TgTThue}</TgTThue>
+                <DSLPhi>
+                    <LPhi/>
+                </DSLPhi>
+                <TTCKTMai>0</TTCKTMai>
+                <TgTTTBSo>{TgTTTBSo}</TgTTTBSo>
+                <TgTTTBChu>{TgTTTBChu}</TgTTTBChu>
+            </TToan>
+        </NDHDon>
+    </DLHDon>
+    <DLQRCode></DLQRCode>
+    <MCCQT>{MCCQT}</MCCQT>
+    <DSCKS>
+        <NBan></NBan>
+        <NMua/>
+        <CCKSKhac/>
+    </DSCKS>
+</HDon>]]></field>
+        </record>
+
+        <record id="template_inv_line_data" model="wg.tvan.template">
+            <field name="sequence">20</field>
+            <field name="code">1450</field>
+            <field name="name">HĐ: hàng hóa / dịch vụ</field>
+            <field name="xml_data"><![CDATA[<HHDVu>
+    <TChat>1</TChat>
+    <STT>{STT}</STT>
+    <MHHDVu>{MHHDVu}</MHHDVu>
+    <THHDVu>{THHDVu}</THHDVu>
+    <DVTinh>{DVTinh}</DVTinh>
+    <SLuong>{SLuong}</SLuong>
+    <DGia>{DGia}</DGia>
+    <TLCKhau>TLCKhau</TLCKhau>
+    <STCKhau>STCKhau</STCKhau>
+    <ThTien>{ThTien}</ThTien>
+    <TSuat>{TSuat}</TSuat>
+</HHDVu>]]></field>
+        </record>
+
+        <record id="template_inv_tax_data" model="wg.tvan.template">
+            <field name="sequence">25</field>
+            <field name="code">1450</field>
+            <field name="name">HĐ: Chi tiết thuế suất</field>
+            <field name="xml_data"><![CDATA[<LTSuat>
+    <TSuat>{TSuat}</TSuat>
+    <ThTien>{ThTien}</ThTien>
+    <TThue>{TThue}</TThue>
+</LTSuat>]]></field>
+        </record>
+
+        <record id="template_inv_adjust_data" model="wg.tvan.template">
+            <field name="sequence">18</field>
+            <field name="code">1450</field>
+            <field name="name">HĐ: Thông tin HĐ điều chỉnh/thay thế</field>
+            <field name="xml_data"><![CDATA[<TTHDLQuan>
+    <TCHDon>{TCHDon}</TCHDon>
+    <LHDCLQuan>{LHDCLQuan}</LHDCLQuan>
+    <KHMSHDCLQuan>{KHMSHDCLQuan}</KHMSHDCLQuan>
+    <KHHDCLQuan>{KHHDCLQuan}</KHHDCLQuan>
+    <SHDCLQuan>{SHDCLQuan}</SHDCLQuan>
+    <NLHDCLQuan>{NLHDCLQuan}</NLHDCLQuan>
+    <GChu>{GChu}</GChu>
+</TTHDLQuan>]]></field>
+        </record>
+
+
+    </data>
+</odoo>

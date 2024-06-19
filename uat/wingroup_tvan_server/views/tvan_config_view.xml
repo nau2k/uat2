@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="tvan_config_tree">
+        <field name="name">wg.tvan.config.tree</field>
+        <field name="model">wg.tvan.config</field>
+        <field name="arch" type="xml">
+            <tree string="Cấu hình kết nối Tvan">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="api_link"/>
+                <field name="mq_url"/>
+                <field name="type"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="tvan_config_form">
+        <field name="name">wg.tvan.config.form</field>
+        <field name="model">wg.tvan.config</field>
+        <field name="arch" type="xml">
+            <form string="Cấu hình kết nối Tvan">
+                <header>
+                    <button name="get_tvan_api_token" string="Get token" type="object"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group col="6" colspan="2">
+                        <group string="API SEND" col="2" colspan="2">
+                            <field name="type"/>
+                            <field name="api_username"/>
+                            <field name="api_password" password="1"/>
+                            <field name="api_link"/>
+                            <field name="api_auth_url"/>
+                            <field name="api_send_url"/>
+                            <field name="api_token"/>
+                            <field name="note"/>
+                        </group>
+                        <group string="MQ INFO" col="2" colspan="2">
+                            <field name="mq_url"/>
+                            <field name="mq_protocol"/>
+                            <field name="mq_mechanisms"/>
+                            <field name="mq_username"/>
+                            <field name="mq_password" password="1"/>
+                            <field name="mq_group"/>
+                            <field name="mq_topic"/>
+                        </group>
+                        <group col="2" colspan="2">
+                            <field name="tct_template_id"/>
+                            <separator string="ĐỊNH DẠNG TRUYỀN DỮ LIỆU TỜ KHAI" col="4" colspan="4"/>
+                            <field name="template_01_id" options="{'no_create': 1}"/>
+                            <field name="template_cks_id" options="{'no_create': 1}"/>
+
+                            <separator string="ĐỊNH DẠNG TRUYỀN DỮ LIỆU HÓA ĐƠN" col="4" colspan="4"/>
+                            <field name="template_inv_id" options="{'no_create': 1}"/>
+                            <field name="template_inv_adjust_id" options="{'no_create': 1}"/>
+                            <field name="template_inv_line_id" options="{'no_create': 1}"/>
+                            <field name="template_tax_line_id" options="{'no_create': 1}"/>
+
+                            <separator string="ĐỊNH DẠNG TRUYỀN DỮ LIỆU THÔNG BÁO SAI SÓT" col="4" colspan="4"/>
+                            <field name="template_tb04_id" options="{'no_create': 1}"/>
+                            <field name="template_tb04_line_id" options="{'no_create': 1}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tvan_config" model="ir.actions.act_window">
+        <field name="name">Cấu hình kết nối Tvan</field>
+        <field name="res_model">wg.tvan.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

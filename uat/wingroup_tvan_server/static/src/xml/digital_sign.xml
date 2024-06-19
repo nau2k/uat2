@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="wg_digital_sign">
+        <div class="container">
+            <div class="d-flex p-3 w-100 bg-white justify-content-between flex-column flex-lg-row">
+                <button class="btn btn-default back_record" type="button" onclick="history.back()">Quay lại
+                </button>
+                <button class="btn btn-primary sign_record" type="button">Ký chứng từ
+                </button>
+            </div>
+            <div class="o_dynamic_dashboard row"/>
+            <div style="padding-top: 100px" class="o_dynamic_chart row">
+            </div>
+        </div>
+    </t>
+
+</templates>
